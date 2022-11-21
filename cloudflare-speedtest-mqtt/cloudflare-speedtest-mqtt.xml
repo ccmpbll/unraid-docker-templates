@@ -1,0 +1,32 @@
+<?xml version="1.0"?>
+<Container version="2">
+  <Name>cloudflare-speedtest-mqtt</Name>
+  <Repository>ccmpbll/cloudflare-speedtest-mqtt</Repository>
+  <Registry>https://hub.docker.com/r/ccmpbll/cloudflare-speedtest-mqtt/</Registry>
+  <Network>bridge</Network>
+  <MyIP/>
+  <Shell>sh</Shell>
+  <Privileged>false</Privileged>
+  <Support>https://github.com/ccmpbll/cloudflare-speedtest-mqtt</Support>
+  <Project>https://github.com/ccmpbll/cloudflare-speedtest-mqtt</Project>
+  <Overview>A simple container designed to send CloudFlare speedtest results over MQTT.&#xD;
+&#xD;
+https://hub.docker.com/r/ccmpbll/cloudflare-speedtest-mqtt/&#xD;
+https://github.com/ccmpbll/cloudflare-speedtest-mqtt</Overview>
+  <Category>Tools: Network:Other</Category>
+  <WebUI/>
+  <TemplateURL/>
+  <Icon>https://raw.githubusercontent.com/ccmpbll/cloudflare-speedtest-mqtt/main/cloudflare-speedtest-mqtt-icon.png</Icon>
+  <ExtraParams/>
+  <PostArgs/>
+  <CPUset/>
+  <DateInstalled>1669056992</DateInstalled>
+  <DonateText/>
+  <DonateLink/>
+  <Requires/>
+  <Config Name="MQTT_SERVER" Target="MQTT_SERVER" Default="" Mode="" Description="" Type="Variable" Display="always" Required="false" Mask="false"/>
+  <Config Name="MQTT_TOPIC" Target="MQTT_TOPIC" Default="" Mode="" Description="" Type="Variable" Display="always" Required="false" Mask="false">cf-speedtest/result</Config>
+  <Config Name="SLEEP" Target="SLEEP" Default="" Mode="" Description="" Type="Variable" Display="always" Required="false" Mask="false">3600</Config>
+  <Config Name="MQTT_USER" Target="MQTT_USER" Default="" Mode="" Description="" Type="Variable" Display="always" Required="false" Mask="false"/>
+  <Config Name="MQTT_PASS" Target="MQTT_PASS" Default="" Mode="" Description="" Type="Variable" Display="always" Required="false" Mask="true"/>
+</Container>
