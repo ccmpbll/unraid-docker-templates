@@ -1,6 +1,7 @@
 <?xml version="1.0"?>
 <Container version="2">
   <Name>cloudflare-speedtest-mqtt</Name>
+  <ExtraSearchTerms>speedtest cloudflare mqtt json</ExtraSearchTerms>
   <Repository>ccmpbll/cloudflare-speedtest-mqtt</Repository>
   <Registry>https://hub.docker.com/r/ccmpbll/cloudflare-speedtest-mqtt/</Registry>
   <Network>bridge</Network>
