@@ -10,10 +10,7 @@
   <Privileged>false</Privileged>
   <Support>https://github.com/ccmpbll/cloudflare-speedtest-mqtt</Support>
   <Project>https://github.com/ccmpbll/cloudflare-speedtest-mqtt</Project>
-  <Overview>A simple container designed to send CloudFlare speedtest results over MQTT.&#xD;
-&#xD;
-https://hub.docker.com/r/ccmpbll/cloudflare-speedtest-mqtt/&#xD;
-https://github.com/ccmpbll/cloudflare-speedtest-mqtt</Overview>
+  <Overview>A simple container designed to send CloudFlare speedtest results over MQTT.</Overview>
   <Category>Tools: Network:Other</Category>
   <WebUI/>
   <TemplateURL/>
