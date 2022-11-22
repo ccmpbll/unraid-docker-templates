@@ -11,7 +11,9 @@
   <Project>https://github.com/ccmpbll/docker-diag-tools</Project>
   <Overview>A very simple Debian-based container packed with useful network troubleshooting tools.&#xD;
 &#xD;
-The following packages are included: bash, curl, iputils-ping, iperf, iproute2, procps, python3, pythin3-pip, net-tools, vnstat, mtr, tcptraceroute, openssh-client, openssl, tcpdump, dnsutils, wget gnupg, mosquitto-clients, and speedtest-cli. Also included is cloudflarepycli, an excellent utility for running Cloudflare speedtests.</Overview>
+The following packages are included: bash, curl, iputils-ping, iperf, iproute2, procps, python3, pythin3-pip, net-tools, vnstat, mtr, tcptraceroute, openssh-client, openssl, tcpdump, dnsutils, wget gnupg, mosquitto-clients, and speedtest-cli. Also included is cloudflarepycli, an excellent utility for running Cloudflare speedtests.
+&#xD;
+Please feel free to send suggestions or additional package ideas that will make this more useful. </Overview>
   <Category>Tools: Network:Management Network:Other</Category>
   <WebUI/>
   <TemplateURL/>
