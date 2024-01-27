@@ -1,0 +1,32 @@
+<?xml version="1.0"?>
+<Container version="2">
+  <Name>prometheus-docker</Name>
+  <Repository>ccmpbll/prometheus-docker</Repository>
+  <Registry>https://hub.docker.com/r/ccmpbll/prometheus-docker</Registry>
+  <Network>bridge</Network>
+  <MyIP/>
+  <Shell>sh</Shell>
+  <Privileged>false</Privileged>
+  <Support>https://github.com/ccmpbll/prometheus-docker</Support>
+  <Project>https://github.com/ccmpbll/prometheus-docker</Project>
+  <Overview>This is the Prometheus you already know and love, but with an easy way to configure the retention time for the data you collect. The default value for retention time is 15 days, but there is no way to change this in the config file. This value can only be set with a flag at startup. This image gives you the ability to configure the retention time with an environment variable and allows for other startup flags to be added later if needed.&#xD;
+&#xD;
+This image is built on top of the official Prometheus docker image. &#xD;
+&#xD;
+For more info on the storage related startup flags, see: https://prometheus.io/docs/prometheus/latest/storage/#operational-aspects</Overview>
+  <Category>Tools: Network:Management Network:Other</Category>
+  <WebUI>http://[IP]:[PORT:9090]</WebUI>
+  <TemplateURL/>
+  <Icon>https://raw.githubusercontent.com/ccmpbll/prometheus-docker/main/prometheus-logo.png</Icon>
+  <ExtraParams/>
+  <PostArgs/>
+  <CPUset/>
+  <DateInstalled>1706391011</DateInstalled>
+  <DonateText/>
+  <DonateLink/>
+  <Requires/>
+  <Config Name="Port" Target="9090" Default="9090" Mode="tcp" Description="" Type="Port" Display="always" Required="false" Mask="false"/>
+  <Config Name="Retention Time" Target="RETENTION_TIME" Default="15d" Mode="" Description="How long to retain metrics in storage. Default is 15d if no value is set. Supported units: y, w, d, h, m, s, ms." Type="Variable" Display="always" Required="false" Mask="false"/>
+  <Config Name="Data Directory" Target="/prometheus/data" Default="/mnt/user/appdata/prometheus-docker/data" Mode="rw" Description="" Type="Path" Display="always" Required="true" Mask="false"/>
+  <Config Name="Config Directory" Target="/etc/prometheus" Default="/mnt/user/appdata/prometheus-docker/config" Mode="rw" Description="" Type="Path" Display="always" Required="true" Mask="false"/>
+</Container>
