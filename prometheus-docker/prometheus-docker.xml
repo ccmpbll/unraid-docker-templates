@@ -28,7 +28,7 @@ For more info on the storage related startup flags, see: https://prometheus.io/d
   <DonateLink/>
   <Requires/>
   <Config Name="Config Directory" Target="/etc/prometheus" Default="/mnt/user/appdata/prometheus-docker/config" Mode="rw" Description="" Type="Path" Display="always" Required="true" Mask="false">/mnt/user/appdata/prometheus-docker/config</Config>
-  <Config Name="Data Directory" Target="/prometheus/data" Default="/mnt/user/appdata/prometheus-docker/data" Mode="rw" Description="" Type="Path" Display="always" Required="true" Mask="false">/mnt/user/appdata/prometheus-docker/data</Config>
+  <Config Name="Data Directory" Target="/prometheus" Default="/mnt/user/appdata/prometheus-docker/data" Mode="rw" Description="" Type="Path" Display="always" Required="true" Mask="false">/mnt/user/appdata/prometheus-docker/data</Config>
   <Config Name="Port" Target="9090" Default="9090" Mode="tcp" Description="" Type="Port" Display="always" Required="false" Mask="false">9090</Config>
   <Config Name="Retention Time" Target="RETENTION_TIME" Default="15d" Mode="" Description="How long to retain metrics in storage. Default is 15d if no value is set. Supported units: y, w, d, h, m, s, ms." Type="Variable" Display="always" Required="false" Mask="false">15d</Config>
 </Container>
