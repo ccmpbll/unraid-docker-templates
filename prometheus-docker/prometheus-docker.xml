@@ -9,7 +9,7 @@
   <Privileged>false</Privileged>
   <Support>https://github.com/ccmpbll/prometheus-docker</Support>
   <Project>https://github.com/ccmpbll/prometheus-docker</Project>
-  <Overview>This is the Prometheus you already know and love, but with an easy way to configure the retention time for the data you collect. The default value for retention time is 15 days, but there is no way to change this in the config file. This value can only be set with a flag at startup. This allows you to configure the retention time using an environment variable and allows for other startup flags to be added later if needed.&#xD;
+  <Overview>This is the Prometheus you already know and love, but with an easy way to configure the retention time for the data you collect. The default value for retention time is 15 days, but there is no way to change this in the config file. This value can only be set with a flag at startup. This image allows you to configure the retention time using an environment variable and allows for other startup flags to be added later if needed.&#xD;
 &#xD;
 For more info on the storage related startup flags, see: https://prometheus.io/docs/prometheus/latest/storage/#operational-aspects</Overview>
   <Category>Tools: Network:Management Network:Other</Category>
