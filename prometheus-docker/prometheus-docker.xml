@@ -20,7 +20,7 @@ For more info on the storage related startup flags, see: https://prometheus.io/d
   <Changes>
       [center][font size=5]prometheus-docker Template Change Log[/font][/center]
       [font size=4]2024.01.27[/font]
-      - Initial Release
+      - Initial Release - Prometheus v2.49.1
   </Changes>
   <Icon>https://raw.githubusercontent.com/ccmpbll/prometheus-docker/main/prometheus-logo.png</Icon>
   <ExtraParams/>
