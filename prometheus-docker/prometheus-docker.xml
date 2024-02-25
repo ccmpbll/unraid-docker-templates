@@ -19,9 +19,9 @@ For more info on the storage-related startup flags, see: https://prometheus.io/d
   <TemplateURL/>
   <Changes>
 ###2024.02.24
-- Updated to Prometheus v2.50.0
+- Updated to Prometheus 2.50.0
 ###2024.01.27
-- Initial release - Prometheus v2.49.1
+- Initial release - Prometheus 2.49.1
   </Changes>
   <Icon>https://raw.githubusercontent.com/ccmpbll/prometheus-docker/main/prometheus-logo.png</Icon>
   <ExtraParams/>
