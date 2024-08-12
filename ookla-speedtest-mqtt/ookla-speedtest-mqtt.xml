@@ -1,0 +1,32 @@
+<?xml version="1.0"?>
+<Container version="2">
+  <Name>ookla-speedtest-mqtt</Name>
+  <ExtraSearchTerms>speedtest ookla mqtt json</ExtraSearchTerms>
+  <Repository>ccmpbll/ookla-speedtest-mqtt</Repository>
+  <Registry>https://hub.docker.com/r/ccmpbll/ookla-speedtest-mqtt/</Registry>
+  <Network>bridge</Network>
+  <MyIP/>
+  <Shell>sh</Shell>
+  <Privileged>false</Privileged>
+  <Support>https://github.com/ccmpbll/ookla-speedtest-mqtt</Support>
+  <Project>https://github.com/ccmpbll/ookla-speedtest-mqtt</Project>
+  <Overview>A simple container designed to send Ookla speedtest results over MQTT.</Overview>
+  <Category>Tools: Network:Other</Category>
+  <WebUI/>
+  <TemplateURL/>
+  <Icon>https://raw.githubusercontent.com/ccmpbll/ookla-speedtest-mqtt/main/ookla-speedtest-mqtt-icon.png</Icon>
+  <ExtraParams/>
+  <PostArgs/>
+  <CPUset/>
+  <DateInstalled>1669056998</DateInstalled>
+  <DonateText/>
+  <DonateLink/>
+  <Requires/>
+  <Config Name="MQTT_SERVER" Target="MQTT_SERVER" Default="" Mode="" Description="" Type="Variable" Display="always" Required="false" Mask="false"/>
+  <Config Name="MQTT_TOPIC" Target="MQTT_TOPIC" Default="" Mode="" Description="" Type="Variable" Display="always" Required="false" Mask="false">ookla-speedtest/result</Config>
+  <Config Name="SLEEP" Target="SLEEP" Default="" Mode="" Description="" Type="Variable" Display="always" Required="false" Mask="false">3600</Config>
+  <Config Name="TZ" Target="TZ" Default="" Mode="" Description="" Type="Variable" Display="always" Required="false" Mask="false"/>America/New_York</Config>
+  <Config Name="SERVER_ID" Target="SERVER_ID" Default="" Mode="" Description="" Type="Variable" Display="always" Required="false" Mask="false"/>
+  <Config Name="MQTT_USER" Target="MQTT_USER" Default="" Mode="" Description="" Type="Variable" Display="always" Required="false" Mask="false"/>
+  <Config Name="MQTT_PASS" Target="MQTT_PASS" Default="" Mode="" Description="" Type="Variable" Display="always" Required="false" Mask="true"/>
+</Container>
