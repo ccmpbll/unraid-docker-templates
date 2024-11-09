@@ -25,7 +25,7 @@
   <Config Name="MQTT_SERVER" Target="MQTT_SERVER" Default="" Mode="" Description="" Type="Variable" Display="always" Required="false" Mask="false"/>
   <Config Name="MQTT_TOPIC" Target="MQTT_TOPIC" Default="" Mode="" Description="" Type="Variable" Display="always" Required="false" Mask="false">ookla-speedtest/result</Config>
   <Config Name="SLEEP" Target="SLEEP" Default="" Mode="" Description="" Type="Variable" Display="always" Required="false" Mask="false">3600</Config>
-  <Config Name="TZ" Target="TZ" Default="" Mode="" Description="" Type="Variable" Display="always" Required="false" Mask="false"/>America/New_York</Config>
+  <Config Name="TZ" Target="TZ" Default="" Mode="" Description="" Type="Variable" Display="always" Required="false" Mask="false">America/New_York</Config>
   <Config Name="SERVER_ID" Target="SERVER_ID" Default="" Mode="" Description="" Type="Variable" Display="always" Required="false" Mask="false"/>
   <Config Name="MQTT_USER" Target="MQTT_USER" Default="" Mode="" Description="" Type="Variable" Display="always" Required="false" Mask="false"/>
   <Config Name="MQTT_PASS" Target="MQTT_PASS" Default="" Mode="" Description="" Type="Variable" Display="always" Required="false" Mask="true"/>
