@@ -14,7 +14,7 @@
 You will need to drop a copy of your config.alloy file in the conf directory. I have a template copy available here: https://github.com/ccmpbll/unraid-docker-templates/blob/master/grafana-alloy/config-template/config.alloy &#13;
 &#13;
 If you plan to change the default port for the web ui, you will also need to change the Post Arguments for this template. </Overview>
-  <Category>Tools: Network:Management Network:Other Status:Stable</Category>
+  <Category>Tools:Utilities Network:Management Network:Other Status:Stable</Category>
   <WebUI>http://[IP]:[PORT:12345]</WebUI>
   <TemplateURL/>
   <Icon>https://raw.githubusercontent.com/ccmpbll/unraid-docker-templates/main/images/grafana-alloy.png</Icon>
