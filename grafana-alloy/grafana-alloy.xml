@@ -24,10 +24,10 @@ If you plan to change the default port for the web ui, you will also need to cha
   <DonateText/>
   <DonateLink/>
   <Requires/>
-  <Config Name="Config" Target="/etc/alloy" Default="" Mode="rw" Description="" Type="Path" Display="always" Required="false" Mask="false">/mnt/user/appdata/alloy/conf</Config>
-  <Config Name="Data" Target="/var/lib/alloy/data" Default="" Mode="rw" Description="" Type="Path" Display="always" Required="false" Mask="false">/mnt/user/appdata/alloy/data</Config>
-  <Config Name="Host Name" Target="HOSTNAME" Default="" Mode="" Description="The name of this Unraid server. Used for tagging logs as they come in. " Type="Variable" Display="always" Required="false" Mask="false">vault</Config>
-  <Config Name="Syslog UDP" Target="514" Default="514" Mode="udp" Description="Port for Syslog receiver." Type="Port" Display="always" Required="false" Mask="false">514</Config>
-  <Config Name="WebUI Port" Target="12345" Default="12345" Mode="tcp" Description="Port for Web UI." Type="Port" Display="always" Required="false" Mask="false">12345</Config>
-  <Config Name="Host docker.sock" Target="/var/run/docker.sock" Default="/var/run/docker.sock" Mode="ro" Description="Path to docker.sock for log retrieval. Read only." Type="Path" Display="always" Required="false" Mask="false">/var/run/docker.sock</Config>
+  <Config Name="Config" Target="/etc/alloy" Default="" Mode="rw" Description="" Type="Path" Display="always" Required="true" Mask="false">/mnt/user/appdata/alloy/conf</Config>
+  <Config Name="Data" Target="/var/lib/alloy/data" Default="" Mode="rw" Description="" Type="Path" Display="always" Required="true" Mask="false">/mnt/user/appdata/alloy/data</Config>
+  <Config Name="Host Name" Target="HOSTNAME" Default="" Mode="" Description="The name of this Unraid server. Used for tagging logs as they come in. " Type="Variable" Display="always" Required="true" Mask="false">vault</Config>
+  <Config Name="Syslog UDP" Target="514" Default="514" Mode="udp" Description="Port for Syslog receiver." Type="Port" Display="always" Required="true" Mask="false">514</Config>
+  <Config Name="WebUI Port" Target="12345" Default="12345" Mode="tcp" Description="Port for Web UI." Type="Port" Display="always" Required="true" Mask="false">12345</Config>
+  <Config Name="Host docker.sock" Target="/var/run/docker.sock" Default="/var/run/docker.sock" Mode="ro" Description="Path to docker.sock for log retrieval. Read only." Type="Path" Display="always" Required="true" Mask="false">/var/run/docker.sock</Config>
 </Container>
