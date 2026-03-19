@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<Container version="2">
+  <Name>Alloy</Name>
+  <Repository>grafana/alloy:latest</Repository>
+  <Registry>https://hub.docker.com/r/grafana/alloy</Registry>
+  <Network>bridge</Network>
+  <Shell>sh</Shell>
+  <Privileged>false</Privileged>
+  <Support>https://github.com/grafana/alloy</Support>
+  <Project>https://github.com/grafana/alloy</Project>
+  <ReadMe/>
+  <Overview>Grafana Alloy is an open source OpenTelemetry Collector distribution with built-in Prometheus pipelines and support for metrics, logs, traces, and profiles.&#13;
+&#13;
+You will need to drop a copy of your config.alloy file in the conf directory. I have a template copy available here: https://github.com/ccmpbll/unraid-docker-templates/blob/master/grafana-alloy/config-template/config.alloy &#13;
+&#13;
+If you plan to change the default port for the web ui, you will also need to change the Post Arguments for this template. </Overview>
+  <Category>Tools: Network:Management Network:Other Status:Stable</Category>
+  <WebUI>http://[IP]:[PORT:12345]</WebUI>
+  <TemplateURL/>
+  <Icon>https://raw.githubusercontent.com/ccmpbll/unraid-docker-templates/main/images/grafana-alloy.png</Icon>
+  <ExtraParams/>
+  <PostArgs>run --server.http.listen-addr=0.0.0.0:12345 --storage.path=/var/lib/alloy/data /etc/alloy/config.alloy</PostArgs>
+  <CPUset/>
+  <DonateText/>
+  <DonateLink/>
+  <Requires/>
+  <Config Name="Config" Target="/etc/alloy" Default="" Mode="rw" Description="" Type="Path" Display="always" Required="false" Mask="false">/mnt/user/appdata/alloy/conf</Config>
+  <Config Name="Data" Target="/var/lib/alloy/data" Default="" Mode="rw" Description="" Type="Path" Display="always" Required="false" Mask="false">/mnt/user/appdata/alloy/data</Config>
+  <Config Name="Host Name" Target="HOSTNAME" Default="" Mode="" Description="The name of this Unraid server. Used for tagging logs as they come in. " Type="Variable" Display="always" Required="false" Mask="false">vault</Config>
+  <Config Name="Syslog UDP" Target="514" Default="514" Mode="udp" Description="Port for Syslog receiver." Type="Port" Display="always" Required="false" Mask="false">514</Config>
+  <Config Name="WebUI Port" Target="12345" Default="12345" Mode="tcp" Description="Port for Web UI." Type="Port" Display="always" Required="false" Mask="false">12345</Config>
+  <Config Name="Host docker.sock" Target="/var/run/docker.sock" Default="/var/run/docker.sock" Mode="ro" Description="Path to docker.sock for log retrieval. Read only." Type="Path" Display="always" Required="false" Mask="false">/var/run/docker.sock</Config>
+</Container>
