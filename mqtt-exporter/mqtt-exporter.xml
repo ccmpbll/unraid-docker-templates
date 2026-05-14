@@ -22,7 +22,7 @@
   <DonateText/>
   <DonateLink/>
   <Requires/>
-  <Config Name="Port" Target="9000" Default="9000" Mode="tcp" Description="Port for Exporter" Type="Port" Display="always" Required="true" Mask="false"></Config>
-  <Config Name="MQTT_ADDRESS" Target="MQTT_ADDRESS" Default="" Mode="" Description="MQTT Broker IP" Type="Variable" Display="always" Required="true" Mask="false"></Config>
-  <Config Name="MQTT_TOPIC" Target="MQTT_TOPIC" Default="" Mode="" Description="MQTT Topics to monitor - comma separate multiple topics" Type="Variable" Display="always" Required="true" Mask="false"></Config>
+  <Config Name="Port" Target="9000" Default="9000" Mode="tcp" Description="Port for Exporter" Type="Port" Display="always" Required="true" Mask="false"/>
+  <Config Name="MQTT_ADDRESS" Target="MQTT_ADDRESS" Default="" Mode="" Description="MQTT Broker IP" Type="Variable" Display="always" Required="true" Mask="false"/>
+  <Config Name="MQTT_TOPIC" Target="MQTT_TOPIC" Default="" Mode="" Description="MQTT Topics to monitor - comma separate multiple topics" Type="Variable" Display="always" Required="true" Mask="false"/>
 </Container>
