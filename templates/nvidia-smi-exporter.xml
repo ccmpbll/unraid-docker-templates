@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<Container version="2">
+  <Name>nvidia-smi-exporter</Name>
+  <Repository>ccmpbll/nvidia-smi-exporter</Repository>
+  <Registry>https://hub.docker.com/r/ccmpbll/nvidia-smi-exporter/</Registry>
+  <Network>bridge</Network>
+  <MyIP/>
+  <MyMAC/>
+  <Shell>sh</Shell>
+  <Privileged>false</Privileged>
+  <Support/>
+  <Project>https://github.com/ccmpbll/nvidia-smi-exporter</Project>
+  <ReadMe/>
+  <Overview>Prometheus exporter for NVIDIA GPU metrics via nvidia-smi. Compatible with all architectures on driver 595+.&#13;
+Metrics will be available here: "http://UNRAID_IP_HERE:9202/metrics".&#13;
+Requires Nvidia-Driver plugin to be installed.</Overview>
+  <Category>Tools:Utilities</Category>
+  <WebUI>http://[IP]:[PORT:9202]/metrics</WebUI>
+  <TemplateURL/>
+  <Icon>https://raw.githubusercontent.com/ccmpbll/unraid-docker-templates/main/images/prom-nvidia.png</Icon>
+  <ExtraParams>--runtime=nvidia</ExtraParams>
+  <PostArgs/>
+  <CPUset/>
+  <DonateText/>
+  <DonateLink/>
+  <Requires/>
+  <Config Name="EXPORTER_PORT" Target="9202" Default="9202" Mode="tcp" Description="" Type="Port" Display="always" Required="true" Mask="false">9202</Config>
+  <Config Name="NVIDIA_VISIBLE_DEVICES" Target="NVIDIA_VISIBLE_DEVICES" Default="all" Mode="" Description="" Type="Variable" Display="always" Required="true" Mask="false">all</Config>
+</Container>
