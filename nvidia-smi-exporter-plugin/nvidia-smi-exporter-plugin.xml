@@ -4,7 +4,7 @@
   <PluginAuthor>ccmpbll</PluginAuthor>
   <Beta>False</Beta>
   <Category>Tools:Utilities</Category>
-  <Name>Nvidia-smi Exporter</Name>
+  <Name>Nvidia-SMI Exporter</Name>
   <Description>Prometheus exporter for NVIDIA GPU metrics via nvidia-smi. Compatible with all architectures on driver 595+.
     Once installed, metrics will be available here: "http://UNRAID_IP_HERE:9202/metrics".
     There is a settings panel available to change port number.
