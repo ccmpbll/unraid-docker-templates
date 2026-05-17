@@ -11,7 +11,7 @@
   <ReadMe/>
   <Overview>Grafana Alloy is an open source OpenTelemetry Collector distribution with built-in Prometheus pipelines and support for metrics, logs, traces, and profiles.&#13;
 &#13;
-You will need to drop a copy of your config.alloy file in the conf directory. I have a template copy available here: https://github.com/ccmpbll/unraid-docker-templates/blob/master/grafana-alloy/config-template/config.alloy &#13;
+You will need to drop a copy of your config.alloy file in the conf directory. I have a template copy available here: https://github.com/ccmpbll/unraid-docker-templates/blob/master/extras/config.alloy &#13;
 &#13;
 If you plan to change the default port for the web ui, you will also need to change the Post Arguments for this template. </Overview>
   <Category>Tools:Utilities Network:Management Network:Other Status:Stable</Category>
