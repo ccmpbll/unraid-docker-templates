@@ -14,7 +14,7 @@
   <Overview>Prometheus exporter for NVIDIA GPU metrics via nvidia-smi. Compatible with all architectures on driver 595+.&#13;
 Metrics will be available here: "http://UNRAID_IP_HERE:9202/metrics".&#13;
 Requires Nvidia-Driver plugin to be installed.</Overview>
-  <Category>Tools:</Category>
+  <Category>Tools: Utilities</Category>
   <WebUI/>
   <TemplateURL/>
   <Icon>https://raw.githubusercontent.com/ccmpbll/unraid-docker-templates/main/images/prom-nvidia.png</Icon>
