@@ -1,15 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
-<Containers>
+<Plugin>
   <PluginURL>https://github.com/ccmpbll/nvidia-smi-exporter/raw/main/unraid/nvidia-smi-exporter.plg</PluginURL>
-  <PluginAuthor>ccmpbll</PluginAuthor>
-  <Beta>False</Beta>
-  <Category>Tools:Utilities</Category>
   <Name>Nvidia-SMI Exporter</Name>
-  <Description>Prometheus exporter for NVIDIA GPU metrics via nvidia-smi. Compatible with all architectures on driver 595+.
+  <Category>Tools:Utilities</Category>
+  <Icon>https://raw.githubusercontent.com/ccmpbll/unraid-docker-templates/main/images/prom-nvidia.png</Icon>
+  <Overview>Prometheus exporter for NVIDIA GPU metrics via nvidia-smi. Compatible with all architectures on driver 595+.
     Once installed, metrics will be available here: "http://UNRAID_IP_HERE:9202/metrics".
     There is a settings panel available to change port number.
     Requires Nvidia-Driver plugin to be installed.
-  </Description>
+  </Overview>
+  <Project>https://github.com/ccmpbll/nvidia-smi-exporter</Project>
   <Support>https://github.com/ccmpbll/nvidia-smi-exporter</Support>
-  <Icon>https://raw.githubusercontent.com/ccmpbll/unraid-docker-templates/main/images/prom-nvidia.png</Icon>
-</Containers>
+</Plugin>
