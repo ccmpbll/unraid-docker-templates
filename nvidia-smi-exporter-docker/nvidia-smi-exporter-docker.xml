@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <Container version="2">
-  <Name>nvidia-smi-exporter-docker</Name>
+  <Name>nvidia-smi-exporter</Name>
   <Repository>ccmpbll/nvidia-smi-exporter</Repository>
   <Registry>https://hub.docker.com/r/ccmpbll/nvidia-smi-exporter/</Registry>
   <Network>bridge</Network>
