@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<Container version="2">
+  <Name>ruckus-unleashed-exporter</Name>
+  <ExtraSearchTerms>ruckus unleashed wifi prometheus exporter</ExtraSearchTerms>
+  <Repository>ccmpbll/ruckus-unleashed-exporter</Repository>
+  <Registry>https://hub.docker.com/r/ccmpbll/ruckus-unleashed-exporter</Registry>
+  <Network>bridge</Network>
+  <Shell>sh</Shell>
+  <Privileged>false</Privileged>
+  <Support>https://github.com/ccmpbll/ruckus-unleashed-exporter</Support>
+  <Project>https://github.com/ccmpbll/ruckus-unleashed-exporter</Project>
+  <ReadMe/>
+  <Overview>Prometheus metrics exporter for Ruckus Unleashed. Scrapes the Unleashed AJAX API and exposes per-AP, per-radio, per-client, and per-SSID metrics.</Overview>
+  <Category>Network:Other</Category>
+  <WebUI/>
+  <TemplateURL/>
+  <Icon>https://raw.githubusercontent.com/ccmpbll/unraid-docker-templates/main/images/ruckus-prom.png</Icon> 
+  <ExtraParams/>
+  <PostArgs/>
+  <CPUset/>
+  <DonateText/>
+  <DonateLink/>
+  <Requires/>
+  <Config Name="Port" Target="9785" Default="9785" Mode="tcp" Description="Prometheus Exporter Port" Type="Port" Display="always" Required="true" Mask="false">9785</Config>
+  <Config Name="Ruckus Host" Target="RUCKUS_HOST" Default="" Mode="" Description="IP or hostname of the Unleashed master AP" Type="Variable" Display="always" Required="true" Mask="false"/>
+  <Config Name="Ruckus Username" Target="RUCKUS_USER" Default="admin" Mode="" Description="Unleashed admin username" Type="Variable" Display="always" Required="true" Mask="false">admin</Config>
+  <Config Name="Ruckus Password" Target="RUCKUS_PASS" Default="" Mode="" Description="Unleashed admin password" Type="Variable" Display="always" Required="true" Mask="true"/>
+  <Config Name="Log Level" Target="LOG_LEVEL" Default="INFO" Mode="" Description="Log verbosity: DEBUG, INFO, WARNING, ERROR" Type="Variable" Display="advanced" Required="false" Mask="false">INFO</Config>
+</Container>

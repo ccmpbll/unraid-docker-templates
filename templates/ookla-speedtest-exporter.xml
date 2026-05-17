@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<Container version="2">
+  <Name>ookla-speedtest-exporter</Name>
+  <ExtraSearchTerms>speedtest ookla prometheus exporter</ExtraSearchTerms>
+  <Repository>ccmpbll/ookla-speedtest-exporter</Repository>
+  <Registry>https://hub.docker.com/r/ccmpbll/ookla-speedtest-exporter</Registry>
+  <Network>bridge</Network>
+  <Shell>sh</Shell>
+  <Privileged>false</Privileged>
+  <Support>https://github.com/ccmpbll/ookla-speedtest-exporter</Support>
+  <Project>https://github.com/ccmpbll/ookla-speedtest-exporter</Project>
+  <ReadMe/>
+  <Overview>Prometheus metrics exporter for Ookla Speedtest CLI. Runs a live speedtest on each scrape and exposes bandwidth, ping, latency, and packet loss metrics.</Overview>
+  <Category>Network:Other</Category>
+  <WebUI/>
+  <TemplateURL/>
+  <Icon>https://raw.githubusercontent.com/ccmpbll/ookla-speedtest-exporter/main/ookla-speedtest-exporter.png</Icon>
+  <ExtraParams/>
+  <PostArgs/>
+  <CPUset/>
+  <DonateText/>
+  <DonateLink/>
+  <Requires/>
+  <Config Name="Port" Target="9142" Default="9142" Mode="tcp" Description="Prometheus Exporter Port" Type="Port" Display="always" Required="true" Mask="false">9142</Config>
+  <Config Name="Timezone" Target="TZ" Default="America/New_York" Mode="" Description="" Type="Variable" Display="always" Required="true" Mask="false">America/New_York</Config>
+  <Config Name="Speedtest Server ID" Target="SERVER_ID" Default="" Mode="" Description="Specify an Ookla speedtest server (Optional)" Type="Variable" Display="always" Required="false" Mask="false"/>
+</Container>
