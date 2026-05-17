@@ -13,7 +13,7 @@
   <Overview>Prometheus metrics exporter for Ruckus Unleashed. Scrapes the Unleashed AJAX API and exposes per-AP, per-radio, per-client, and per-SSID metrics.</Overview>
   <Category>Network:Other</Category>
   <WebUI/>
-  <TemplateURL/>
+  <TemplateURL>https://raw.githubusercontent.com/ccmpbll/unraid-docker-templates/refs/heads/master/templates/ruckus-unleashed-exporter.xml</TemplateURL>
   <Icon>https://raw.githubusercontent.com/ccmpbll/unraid-docker-templates/main/images/ruckus-prom.png</Icon> 
   <ExtraParams/>
   <PostArgs/>

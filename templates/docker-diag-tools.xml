@@ -5,7 +5,7 @@
   <Registry>https://hub.docker.com/repository/docker/ccmpbll/docker-diag-tools</Registry>
   <Network>bridge</Network>
   <MyIP/>
-  <Shell>sh</Shell>
+  <Shell>bash</Shell>
   <Privileged>false</Privileged>
   <Support>https://github.com/ccmpbll/docker-diag-tools</Support>
   <Project>https://github.com/ccmpbll/docker-diag-tools</Project>
@@ -16,13 +16,12 @@ The following packages are included: bash, curl, iputils-ping, iperf, iproute2, 
 Please feel free to send suggestions or additional package ideas that will make this more useful. </Overview>
   <Category>Tools: Network:Management Network:Other</Category>
   <WebUI/>
-  <TemplateURL/>
   <Icon>https://raw.githubusercontent.com/ccmpbll/docker-diag-tools/master/docker-diag-tools-icon.png</Icon>
   <ExtraParams/>
   <PostArgs/>
   <CPUset/>
-  <DateInstalled>1669128542</DateInstalled>
   <DonateText/>
   <DonateLink/>
   <Requires/>
+  <TemplateURL>https://raw.githubusercontent.com/ccmpbll/unraid-docker-templates/refs/heads/master/templates/docker-diag-tools.xml</TemplateURL>
 </Container>

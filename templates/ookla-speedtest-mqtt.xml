@@ -13,12 +13,11 @@
   <Overview>A simple container designed to send Ookla speedtest results over MQTT.</Overview>
   <Category>Tools: Network:Other</Category>
   <WebUI/>
-  <TemplateURL/>
+  <TemplateURL>https://raw.githubusercontent.com/ccmpbll/unraid-docker-templates/refs/heads/master/templates/ookla-speedtest-mqtt.xml</TemplateURL>
   <Icon>https://raw.githubusercontent.com/ccmpbll/ookla-speedtest-mqtt/main/ookla-speedtest-mqtt-icon.png</Icon>
   <ExtraParams/>
   <PostArgs/>
   <CPUset/>
-  <DateInstalled>1669056998</DateInstalled>
   <DonateText/>
   <DonateLink/>
   <Requires/>

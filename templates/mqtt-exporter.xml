@@ -14,7 +14,7 @@
   <Overview>Simple Prometheus exporter for MQTT</Overview>
   <Category>Network:Other</Category>
   <WebUI/>
-  <TemplateURL/>
+  <TemplateURL>https://raw.githubusercontent.com/ccmpbll/unraid-docker-templates/refs/heads/master/templates/mqtt-exporter.xml</TemplateURL>
   <Icon>https://raw.githubusercontent.com/ccmpbll/unraid-docker-templates/main/images/mqtt-exporter.png</Icon>
   <ExtraParams/>
   <PostArgs/>
