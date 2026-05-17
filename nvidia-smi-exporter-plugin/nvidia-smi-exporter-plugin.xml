@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<Container>
+<Containers>
   <PluginURL>https://github.com/ccmpbll/nvidia-smi-exporter/raw/main/unraid/nvidia-smi-exporter.plg</PluginURL>
   <PluginAuthor>ccmpbll</PluginAuthor>
   <Beta>False</Beta>
@@ -9,7 +9,7 @@
     Once installed, metrics will be available here: "http://UNRAID_IP_HERE:9202/metrics".
     There is a settings panel available to change port number.
     Requires Nvidia-Driver plugin to be installed.
-</Description>
+  </Description>
   <Support>https://github.com/ccmpbll/nvidia-smi-exporter</Support>
   <Icon>https://raw.githubusercontent.com/ccmpbll/unraid-docker-templates/main/images/prom-nvidia.png</Icon>
-</Container>
+</Containers>
