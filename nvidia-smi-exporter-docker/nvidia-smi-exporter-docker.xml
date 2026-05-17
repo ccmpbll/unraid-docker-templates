@@ -15,7 +15,7 @@
 Metrics will be available here: "http://UNRAID_IP_HERE:9202/metrics".&#13;
 Requires Nvidia-Driver plugin to be installed.</Overview>
   <Category>Tools: Utilities</Category>
-  <WebUI/>
+  <WebUI>http://[IP]:[PORT:9202]/metrics</WebUI>
   <TemplateURL/>
   <Icon>https://raw.githubusercontent.com/ccmpbll/unraid-docker-templates/main/images/prom-nvidia.png</Icon>
   <ExtraParams>--runtime=nvidia</ExtraParams>
