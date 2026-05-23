@@ -21,6 +21,30 @@
   <DonateText/>
   <DonateLink/>
   <Requires/>
+  <Changes>
+###2026-05-23
+- Added 8 new per-client session traffic metrics: TX/RX bytes, TX/RX packets, TX retries, RX CRC errors, TX data drops, and session duration
+- Per-client byte/packet counters reset to zero on client reconnect (Gauge semantics — expected behaviour for infrequent reconnects)
+- Updated Grafana dashboard with new Client Traffic row: per-client throughput time series, session TX/RX bar gauges, and session duration bar gauge
+
+###2026-03-29
+- Added pre-built Grafana dashboard (import from dashboards/ruckus-unleashed.json)
+- Expanded ruckus_client_protocol_info with additional per-client connection attributes
+
+###2026-03-28
+- Added 17 new metrics across radio, client, and VAP categories
+- Renamed cumulative byte/packet metrics with _total suffix
+- Added /debug endpoint exposing raw API data with sensitive fields redacted (wpa-passphrase, PSKs, SNMP community strings, etc.)
+- Fixed ruckus_radio_avg_rssi_dbm sign — was reporting positive magnitude, now correctly negative dBm
+
+###2026-03-26
+- Initial release
+- Per-AP status, uptime, LAN traffic, and reboot counters
+- Per-radio channel utilization, airtime, throughput, noise floor, and client count
+- Per-client RSSI, noise floor, and SNR
+- Per-VAP (SSID) traffic and client counts
+- System CPU, memory, AP count, and client count
+  </Changes>
   <Config Name="Port" Target="9785" Default="9785" Mode="tcp" Description="Prometheus Exporter Port" Type="Port" Display="always" Required="true" Mask="false">9785</Config>
   <Config Name="Ruckus Host" Target="RUCKUS_HOST" Default="" Mode="" Description="IP or hostname of the Unleashed master AP" Type="Variable" Display="always" Required="true" Mask="false"/>
   <Config Name="Ruckus Username" Target="RUCKUS_USER" Default="admin" Mode="" Description="Unleashed admin username" Type="Variable" Display="always" Required="true" Mask="false">admin</Config>
