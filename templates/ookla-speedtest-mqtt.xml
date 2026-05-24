@@ -21,6 +21,30 @@
   <DonateText/>
   <DonateLink/>
   <Requires/>
+  <Changes>
+###2026-05-16
+- Updated README documentation
+
+###2026-02-20
+- Improved code quality and reduced image size
+- Added CA certificates for wget SSL support
+- Switched to trixie-slim base image for better performance
+
+###2025-07-08
+- Added enhanced logging
+
+###2025-06-12
+- Added support for specifying and testing cron schedule expressions
+- Updated documentation
+
+###2025-06-02
+- Switched from sleep-based scheduling to cron for more reliable execution
+- Updated Dockerfile and scripts
+- Migrated to Debian base image
+
+###2024-08-12
+- Initial release with Ookla speedtest to MQTT integration
+  </Changes>
   <Config Name="MQTT_SERVER" Target="MQTT_SERVER" Default="" Mode="" Description="" Type="Variable" Display="always" Required="false" Mask="false"/>
   <Config Name="MQTT_TOPIC" Target="MQTT_TOPIC" Default="" Mode="" Description="" Type="Variable" Display="always" Required="false" Mask="false">ookla-speedtest/result</Config>
   <Config Name="SLEEP" Target="SLEEP" Default="" Mode="" Description="" Type="Variable" Display="always" Required="false" Mask="false">3600</Config>

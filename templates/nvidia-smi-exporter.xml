@@ -24,6 +24,33 @@ Requires Nvidia-Driver plugin to be installed.</Overview>
   <DonateText/>
   <DonateLink/>
   <Requires/>
+  <Changes>
+###2026-05-20
+- Added README.md for consistent display across Unraid Plugins tab, Tools menu, and Community Apps store
+- Expanded changelog entries in plugin manifest
+
+###2026-05-19
+- Grafana dashboard added with comprehensive GPU metrics visualization
+
+###2026-05-18
+- Fixed Plugins tab status display and changelog popup that were broken by previous name change
+- Plugin internal identifier reverted to filename slug for Unraid compatibility
+
+###2026-05-17
+- Renamed plugin display name to "Nvidia-SMI Exporter" across all user-facing surfaces
+- Added Grafana dashboard covering all exported metrics
+- Moved plugin settings page from Settings tab to Tools menu (User Utilities)
+- Fixed plugin icon installation and display
+
+###2026-05-16
+- Initial public release with driver 595+ support
+- Renamed LISTEN_ADDRESS environment variable to EXPORTER_PORT
+- Added GPU detection logging at startup
+- Added custom plugin icon
+- Updated base Docker image to CUDA 13.2.1
+- Switched Docker image publishing from GHCR to Docker Hub
+- Updated GitHub Actions to Node.js 24 compatible versions
+  </Changes>
   <Config Name="EXPORTER_PORT" Target="9202" Default="9202" Mode="tcp" Description="" Type="Port" Display="always" Required="true" Mask="false">9202</Config>
   <Config Name="NVIDIA_VISIBLE_DEVICES" Target="NVIDIA_VISIBLE_DEVICES" Default="all" Mode="" Description="" Type="Variable" Display="always" Required="true" Mask="false">all</Config>
 </Container>
