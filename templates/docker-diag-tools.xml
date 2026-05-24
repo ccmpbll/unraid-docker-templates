@@ -11,7 +11,7 @@
   <Project>https://github.com/ccmpbll/docker-diag-tools</Project>
   <Overview>A simple Debian-based container packed with useful network troubleshooting and diagnostic tools.&#xD;
 &#xD;
-Included packages: bash, curl, iputils-ping, iperf3, iproute2, procps, python3, python3-pip, net-tools, netcat-openbsd, vnstat, mtr, traceroute, tcptraceroute, openssh-client, openssl, tcpdump, dnsutils, wget, gnupg, mosquitto-clients, and speedtest-cli.&#xD;
+Included packages: bash, curl, iputils-ping, iputils-arping, iperf3, iproute2, procps, python3, python3-pip, net-tools, netcat-openbsd, nmap, socat, vnstat, mtr, traceroute, tcptraceroute, openssh-client, openssl, tcpdump, dnsutils, wget, gnupg, mosquitto-clients, fping, lsof, jq, whois, and speedtest-cli.&#xD;
 &#xD;
 Please feel free to send suggestions or additional package ideas that will make this more useful.</Overview>
   <Category>Tools: Network:Management Network:Other</Category>
@@ -24,6 +24,12 @@ Please feel free to send suggestions or additional package ideas that will make 
   <DonateLink/>
   <Requires/>
   <Changes>
+###2026-05-23
+- Added nmap, socat, fping, arping, lsof, jq, and whois
+- Merged Dockerfile into a single RUN layer to reduce image size
+- Added --no-install-recommends and cleared apt cache for a leaner image
+- Switched to DEBIAN_FRONTEND=noninteractive; removed apt-utils workaround
+
 ###2024-02-02
 - Switched base image from debian:latest to debian:bookworm-slim for a smaller, reproducible image
 
