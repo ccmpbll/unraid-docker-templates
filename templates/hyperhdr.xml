@@ -1,0 +1,37 @@
+<?xml version="1.0"?>
+<Container version="2">
+  <Name>hyperhdr</Name>
+  <ExtraSearchTerms>hyperhdr hdr ambient lighting bias lighting led hyperion</ExtraSearchTerms>
+  <Repository>ccmpbll/hyperhdr:latest</Repository>
+  <Registry>https://hub.docker.com/r/ccmpbll/hyperhdr</Registry>
+  <Network>host</Network>
+  <Shell>sh</Shell>
+  <Privileged>false</Privileged>
+  <Support>https://github.com/ccmpbll/hyperhdr-docker</Support>
+  <Project>https://github.com/awawa-dev/HyperHDR</Project>
+  <ReadMe/>
+  <Overview>HyperHDR is an open source ambient lighting software with HDR tone mapping support. Captures video from a USB capture card and drives LED strips via USB or network controllers.&#13;
+&#13;
+This image is automatically built and published within 24 hours of each upstream HyperHDR release, including beta versions. Use the "latest" tag for the newest stable release, or "beta" to always run the latest beta. You can also pin to any specific version tag.&#13;
+&#13;
+The web interface will be available at: http://UNRAID_IP:8090</Overview>
+  <Category>HomeAutomation:</Category>
+  <WebUI>http://[IP]:[PORT:8090]</WebUI>
+  <TemplateURL>https://raw.githubusercontent.com/ccmpbll/unraid-docker-templates/refs/heads/master/templates/hyperhdr.xml</TemplateURL>
+  <Icon>https://raw.githubusercontent.com/ccmpbll/unraid-docker-templates/main/images/hyperhdr.png</Icon>
+  <ExtraParams/>
+  <PostArgs/>
+  <CPUset/>
+  <DonateText/>
+  <DonateLink/>
+  <Requires/>
+  <Changes>
+###2026-05-30
+- Initial release
+  </Changes>
+  <Config Name="Web UI Port" Target="8090" Default="8090" Mode="tcp" Description="HTTP web interface" Type="Port" Display="always" Required="true" Mask="false">8090</Config>
+  <Config Name="Flatbuffers Server Port" Target="19400" Default="19400" Mode="tcp" Description="Flatbuffers server port for high-speed LED data input" Type="Port" Display="always" Required="true" Mask="false">19400</Config>
+  <Config Name="Config Path" Target="/config" Default="/mnt/user/appdata/hyperhdr" Mode="rw" Description="Path to store HyperHDR configuration" Type="Path" Display="always" Required="true" Mask="false">/mnt/user/appdata/hyperhdr</Config>
+  <Config Name="Timezone" Target="TZ" Default="America/New_York" Mode="" Description="" Type="Variable" Display="always" Required="true" Mask="false">America/New_York</Config>
+  <Config Name="Video Device" Target="/dev/video0" Default="/dev/video0" Mode="" Description="USB capture card device path. Remove if not using a capture card." Type="Device" Display="always" Required="false" Mask="false">/dev/video0</Config>
+</Container>
