@@ -19,7 +19,7 @@ Features include smart plug power monitoring and control (Tasmota/PSU Control), 
 Open the web UI, add your printers with their OctoPrint URL and API key, and you're set. No config files needed.&#13;
 &#13;
 Web interface: http://UNRAID_IP:8080</Overview>
-  <Category>Tools:Utilities HomeAutomation: Productivity:</Category>
+  <Category>Tools:Utilities</Category>
   <WebUI>http://[IP]:[PORT:8080]</WebUI>
   <TemplateURL>https://raw.githubusercontent.com/ccmpbll/unraid-docker-templates/refs/heads/master/templates/printspy.xml</TemplateURL>
   <Icon>https://raw.githubusercontent.com/ccmpbll/unraid-docker-templates/main/images/printspy.png</Icon>
