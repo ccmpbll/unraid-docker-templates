@@ -54,5 +54,5 @@ Web interface: http://UNRAID_IP:8080</Overview>
 - Mobile responsive layout with dark mode
   </Changes>
   <Config Name="Web UI Port" Target="8080" Default="8080" Mode="tcp" Description="HTTP web interface port" Type="Port" Display="always" Required="true" Mask="false">8080</Config>
-  <Config Name="Data Path" Target="/data" Default="/mnt/user/appdata/printspy" Mode="rw" Description="Path to store PrintSpy database and configuration" Type="Path" Display="always" Required="true" Mask="false">/mnt/user/appdata/printspy</Config>
+  <Config Name="Config Path" Target="/data" Default="/mnt/user/appdata/printspy" Mode="rw" Description="Path to store PrintSpy database and configuration" Type="Path" Display="always" Required="true" Mask="false">/mnt/user/appdata/printspy</Config>
 </Container>
