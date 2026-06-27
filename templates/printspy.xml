@@ -1,0 +1,58 @@
+<?xml version="1.0"?>
+<Container version="2">
+  <Name>printspy</Name>
+  <ExtraSearchTerms>printspy 3d printer monitor octoprint dashboard print farm</ExtraSearchTerms>
+  <Repository>ccmpbll/printspy:latest</Repository>
+  <Registry>https://hub.docker.com/r/ccmpbll/printspy</Registry>
+  <Network>bridge</Network>
+  <MyIP/>
+  <MyMAC/>
+  <Shell>sh</Shell>
+  <Privileged>false</Privileged>
+  <Support>https://github.com/ccmpbll/printspy/issues</Support>
+  <Project>https://github.com/ccmpbll/printspy</Project>
+  <ReadMe>https://github.com/ccmpbll/printspy/blob/main/README.md</ReadMe>
+  <Overview>Self-hosted dashboard for monitoring multiple 3D printers from a single web interface. Connects to OctoPrint instances and displays real-time status, webcam feeds, temperatures, print progress, and more via Server-Sent Events.&#13;
+&#13;
+Features include smart plug power monitoring and control (Tasmota/PSU Control), print control (pause/resume/cancel), recent files with one-click reprint, layer progress, and GCode thumbnails.&#13;
+&#13;
+Open the web UI, add your printers with their OctoPrint URL and API key, and you're set. No config files needed.&#13;
+&#13;
+Web interface: http://UNRAID_IP:8080</Overview>
+  <Category>Tools:Utilities HomeAutomation: Productivity:</Category>
+  <WebUI>http://[IP]:[PORT:8080]</WebUI>
+  <TemplateURL>https://raw.githubusercontent.com/ccmpbll/unraid-docker-templates/refs/heads/master/templates/printspy.xml</TemplateURL>
+  <Icon>https://raw.githubusercontent.com/ccmpbll/unraid-docker-templates/main/images/printspy.png</Icon>
+  <ExtraParams/>
+  <PostArgs/>
+  <CPUset/>
+  <DonateText/>
+  <DonateLink/>
+  <Requires/>
+  <Changes>
+###2026-06-27b
+- Recent files dropdown with thumbnails, print status, and one-click reprint
+- Print control: pause, resume, cancel from the dashboard
+- Recent files count configurable in settings
+- Security fixes: path traversal guard, XSS fix in reprint handlers
+
+###2026-06-27
+- Smart plug power monitoring and control (Tasmota and PSU Control)
+- Per-printer and bulk power on/off with printing safety guard
+- Live power consumption display (watts) for Tasmota energy devices
+
+###2026-06-24
+- Full code review: 23 issues fixed across bugs, security, performance
+- API keys stripped from list/SSE responses
+- Graceful shutdown, settings validation, typed SSE messages
+- go-sqlite3 bumped for CVE fixes
+
+###2026-06-22
+- Initial release
+- Real-time SSE dashboard with webcam, temps, progress, thumbnails
+- OctoPrint plugin detection (DisplayLayerProgress, camera-streamer)
+- Mobile responsive layout with dark mode
+  </Changes>
+  <Config Name="Web UI Port" Target="8080" Default="8080" Mode="tcp" Description="HTTP web interface port" Type="Port" Display="always" Required="true" Mask="false">8080</Config>
+  <Config Name="Data Path" Target="/data" Default="/mnt/user/appdata/printspy" Mode="rw" Description="Path to store PrintSpy database and configuration" Type="Path" Display="always" Required="true" Mask="false">/mnt/user/appdata/printspy</Config>
+</Container>
