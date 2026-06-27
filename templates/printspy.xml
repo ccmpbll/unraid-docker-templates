@@ -30,6 +30,13 @@ Web interface: http://UNRAID_IP:8080</Overview>
   <DonateLink/>
   <Requires/>
   <Changes>
+###2026-06-27c
+- Multi-plug Tasmota support with per-plug labeled controls
+- Smart printing guard: only protects printer plug, auxiliary plugs (lights, fan) can be toggled while printing
+- Global poll interval setting
+- YAML config export/import for backup and restore
+- Pause confirmation dialog
+
 ###2026-06-27b
 - Recent files dropdown with thumbnails, print status, and one-click reprint
 - Print control: pause, resume, cancel from the dashboard
