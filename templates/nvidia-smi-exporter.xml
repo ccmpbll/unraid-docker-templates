@@ -25,6 +25,9 @@ Requires Nvidia-Driver plugin to be installed.</Overview>
   <DonateLink/>
   <Requires/>
   <Changes>
+###2026-07-01
+- Internal refactor: deduped nvidia-smi command execution and XML parsing logic (no user-facing change)
+
 ###2026-05-20
 - Added README.md for consistent display across Unraid Plugins tab, Tools menu, and Community Apps store
 - Expanded changelog entries in plugin manifest
