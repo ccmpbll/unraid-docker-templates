@@ -30,6 +30,43 @@ Web interface: http://UNRAID_IP:8080</Overview>
   <DonateLink/>
   <Requires/>
   <Changes>
+###2026-07-02b
+- Direct Tasmota smart plug support — talk to devices directly over HTTP, independent of any auto-detected plugin (works for PrusaLink, Klipper, or OctoPrint without the Tasmota plugin)
+- Plugs managed independently of printers (Settings &gt; Smart Plugs) — survive printer deletion instead of being removed with it
+- Assignable to any printer type, including OctoPrint, for a second plug an auto-detected one doesn't cover
+- Per-plug label visibility toggle for the dashboard power button
+- Power toggles now reflect instantly instead of waiting on the next poll cycle
+- Bumped to Go 1.25
+
+###2026-07-02a
+- Larger, centered logo on the login/setup pages
+- Self-service password change from Settings &gt; Your account
+
+###2026-07-02
+- Multi-user login — bcrypt-hashed accounts, SQLite-backed sessions, first-run setup page
+- Login rate-limited to 5 attempts per 15 minutes per username
+- Fixed SSRF via printer URL field (blocks loopback/link-local addresses, including the cloud metadata endpoint)
+- Added X-Content-Type-Options: nosniff header
+- Added CI (build/test) on every PR and push to main
+
+###2026-07-01a
+- Dead code removal, SSE broadcast dedupe
+
+###2026-07-01
+- Dedupe digest-auth retry and idle-reload code paths
+
+###2026-06-27e
+- Fix idle power consumption (watts) not displaying on printer cards
+- Fix recent files not updating after changing count in settings
+- Fix potential crash when PrusaLink camera snapshot fails to load
+- Fix digest auth using wrong URI path for snapshot proxy
+
+###2026-06-27d
+- New PrusaLink printer plugin — connect Prusa MK4/MK4S, MK3.9, Mini+, XL, and Core One directly via PrusaLink API
+- HTTP Digest authentication, status monitoring, print control, recent files, and camera snapshots
+- Automatic print history recording for both OctoPrint and PrusaLink printers
+- Printer type selector with conditional fields, pause confirmation dialog
+
 ###2026-06-27c
 - Multi-plug Tasmota support with per-plug labeled controls
 - Smart printing guard: only protects printer plug, auxiliary plugs (lights, fan) can be toggled while printing
