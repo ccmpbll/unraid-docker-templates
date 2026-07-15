@@ -30,6 +30,9 @@ Web interface: http://UNRAID_IP:8080</Overview>
   <DonateLink/>
   <Requires/>
   <Changes>
+###2026-07-15d
+- Fix: an MQTT smart plug never showed up on its printer's card if the device only publishes state on its own schedule (Tasmota's TelePeriod, factory default 300s) instead of a short custom interval - now actively queried for its current state right after subscribing, instead of waiting on the device to announce it
+
 ###2026-07-15c
 - MQTT support for directly-configured smart plugs — opt-in per-plug alternative to HTTP-direct Tasmota polling, push-based via a broker instead of a fresh HTTP round-trip every poll tick
 - New MQTT Broker settings section (host:port + TLS checkbox, Save/Test/Save-and-test) and a Direct HTTP / MQTT toggle in the Smart Plug modal
