@@ -30,6 +30,10 @@ Web interface: http://UNRAID_IP:8080</Overview>
   <DonateLink/>
   <Requires/>
   <Changes>
+###2026-07-15e
+- Fix: PrusaSlicer/OrcaSlicer "Upload and Print" didn't power on a printer whose assigned smart plug was in MQTT mode - dispatch was matching plugs using the old HTTP-only convention
+- Fix: an MQTT plug's cached state could go stale if the device itself disconnected and reconnected to the broker (reboot, power blip, wifi drop) - now re-checks current state as soon as the device comes back, instead of trusting what was last known
+
 ###2026-07-15d
 - Fix: an MQTT smart plug never showed up on its printer's card if the device only publishes state on its own schedule (Tasmota's TelePeriod, factory default 300s) instead of a short custom interval - now actively queried for its current state right after subscribing, instead of waiting on the device to announce it
 
