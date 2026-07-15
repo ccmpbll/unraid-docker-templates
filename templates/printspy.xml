@@ -12,11 +12,11 @@
   <Support>https://github.com/ccmpbll/printspy/issues</Support>
   <Project>https://github.com/ccmpbll/printspy</Project>
   <ReadMe>https://github.com/ccmpbll/printspy/blob/main/README.md</ReadMe>
-  <Overview>Self-hosted dashboard for monitoring multiple 3D printers from a single web interface. Connects to OctoPrint instances and displays real-time status, webcam feeds, temperatures, print progress, and more via Server-Sent Events.&#13;
+  <Overview>Self-hosted dashboard for monitoring multiple 3D printers from a single web interface. Connects to OctoPrint and PrusaLink printers, displaying real-time status, webcam feeds, temperatures, print progress, and more via Server-Sent Events.&#13;
 &#13;
-Features include smart plug power monitoring and control (Tasmota/PSU Control), print control (pause/resume/cancel), recent files with one-click reprint, layer progress, and GCode thumbnails.&#13;
+Features include a full File Manager with thumbnails and one-click reprint, print history with per-print material/filament stats, Pushover notifications, smart plug power control (Tasmota via direct HTTP or MQTT, or PSU Control), print control (pause/resume/cancel), and PrusaSlicer/OrcaSlicer print-host integration.&#13;
 &#13;
-Open the web UI, add your printers with their OctoPrint URL and API key, and you're set. No config files needed.&#13;
+Open the web UI, add your printers, and you're set. No config files needed.&#13;
 &#13;
 Web interface: http://UNRAID_IP:8080</Overview>
   <Category>Tools:Utilities</Category>
@@ -30,6 +30,105 @@ Web interface: http://UNRAID_IP:8080</Overview>
   <DonateLink/>
   <Requires/>
   <Changes>
+###2026-07-15c
+- MQTT support for directly-configured smart plugs — opt-in per-plug alternative to HTTP-direct Tasmota polling, push-based via a broker instead of a fresh HTTP round-trip every poll tick
+- New MQTT Broker settings section (host:port + TLS checkbox, Save/Test/Save-and-test) and a Direct HTTP / MQTT toggle in the Smart Plug modal
+- Both connection modes can be mixed freely across plugs
+
+###2026-07-15b
+- Fix: a "no thumbnail yet" response was browser-cacheable, hiding a real thumbnail once it landed until a manual cache clear
+
+###2026-07-15a
+- Real thumbnails in print History, backfilled for old rows too
+- Bumped File Manager metadata-backfill timeout (15s to 90s) — production files were timing out over real network conditions
+
+###2026-07-15
+- File-metadata and thumbnail caching for File Manager (PrusaLink) — parsed once at upload/completion/backfill instead of live on every view
+- Fixes .gcode thumbnails never showing and notification images vanishing after a job cleared
+- Every file now shows its material/tool, not just multi-tool prints
+- Fixed PrusaLink 8.3 short-filename and "%"-in-filename bugs affecting downloads/deletes/uploads
+
+###2026-07-14a
+- Fix: camera/webcam boxes could briefly reappear on page load for printers configured to hide them while unreachable
+
+###2026-07-14
+- SNAP/LIVE/PLATE mode buttons per printer's camera/thumbnail image
+- Download button in File Manager
+- Global setting to hide camera/thumbnail section for an unreachable printer
+- Fixed dispatch hanging on an unresponsive smart plug when the printer itself was already reachable
+- Fixed print-complete/failed notifications sending no image
+- Fixed camera reassignment silently leaving two printers pointed at one camera
+
+###2026-07-12
+- Fixed: dispatched print jobs could hang if a printer's smart plug was unresponsive, even when the printer itself was already on and reachable
+
+###2026-07-10d
+- Fixed spurious "Print Started" notifications (and re-fired checkpoints) when printspy restarted mid-print
+
+###2026-07-10c
+- Configurable print history retention (Settings &gt; General, 0 = keep forever)
+- File Manager thumbnails now lazy-load on scroll instead of all firing at once
+
+###2026-07-10a
+- Fixed oversized Cancel button icon on iOS Safari/Firefox (CSS-drawn icons replace emoji-routed glyphs)
+- History modal reworked into a mobile-friendly card list
+
+###2026-07-10
+- Pushover notifications: print started, two configurable checkpoints, complete, failed, and printer error — each with its own priority, sound, image source, and custom templates
+- Settings gained a Send Test Notification button
+
+###2026-07-08k
+- File Manager modal widened, filenames wrap instead of truncating
+
+###2026-07-08j
+- Recent Files dropdown replaced with a full File Manager — one button per card lists every file on that printer's storage
+
+###2026-07-08i
+- Slicer ingest targets now pin to one specific printer and relay automatically — Upload relays once online, Upload and Print powers on/waits/prints fully automatically
+- Fixed a settings crash when a slicer target had no label
+- Fixed concurrent uploads to the same offline printer racing on reconnect
+
+###2026-07-08g
+- Runtime image now bundles the sqlite3 CLI for ad-hoc DB inspection
+- Fixed stale numeric-ID Host URL shown in the slicer target modal
+
+###2026-07-08f
+- Slicer target save failures now show the real error instead of failing silently
+- Label input auto-slugifies
+
+###2026-07-08e
+- Ingest job staging broadcasts a live dashboard refresh
+- Release builds dropped arm64/QEMU (Unraid is x86_64 only)
+- Ingest targets can use a label slug (/ingest/{label}) alongside numeric ID
+
+###2026-07-08d
+- Dispatch always issues the print command on relay — plain slicer "Upload" now stages for a human print decision instead of silently uploading inert
+
+###2026-07-08c
+- Fixed real file uploads timing out over wifi (dedicated 5-minute upload timeout)
+- Print control buttons (Pause/Resume/Cancel) now confirm, show progress, and update from the same response — no more racing a separate broadcast
+- Fixed webcam feed unnecessarily rebuilding on printer state changes
+
+###2026-07-08b
+- Fixed changing the auto-off idle timeout could immediately cut power to printers already past the new threshold
+- Fixed snapshot/thumbnail proxies silently swallowing upstream errors
+
+###2026-07-08a
+- Slicer print-host target: point PrusaSlicer/OrcaSlicer's "Send to printer" at PrintSpy, with optional auto-dispatch
+- Config export/import now covers smart plugs and cameras
+
+###2026-07-08
+- File upload from the dashboard for PrusaLink printers, with optional "print immediately"
+- printspy-cam integration — gives PrusaLink printers a working webcam feed
+- Auto-off after idle timeout + thermal runaway protection
+- Printer maintenance mode
+- PrusaLink keepalive ping, optional "model" field
+- New "attention" printer state, split from hard errors
+- Fixed PrusaLink digest auth breaking on filenames with spaces
+
+###2026-07-03
+- SSE heartbeat every 15s to prevent proxies from reaping idle dashboard connections
+
 ###2026-07-02b
 - Direct Tasmota smart plug support — talk to devices directly over HTTP, independent of any auto-detected plugin (works for PrusaLink, Klipper, or OctoPrint without the Tasmota plugin)
 - Plugs managed independently of printers (Settings &gt; Smart Plugs) — survive printer deletion instead of being removed with it
