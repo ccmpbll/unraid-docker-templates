@@ -30,6 +30,9 @@ Web interface: http://UNRAID_IP:8080</Overview>
   <DonateLink/>
   <Requires/>
   <Changes>
+###2026-07-16b
+- Print History is now fully self-contained, independent of the printer - a completed print's thumbnail is stored directly on its own History record instead of being borrowed from the live file cache, so deleting the source file from the printer (or the automatic cleanup that runs whenever File Manager refreshes) no longer breaks that entry's thumbnail. Existing History entries are automatically repaired on upgrade. Material, tool, layer height, filament stats, and everything else already worked this way - thumbnail was the one exception.
+
 ###2026-07-16a
 - Hotfix: the new debug-logging request middleware in 2026-07-16 broke the dashboard entirely (showed "No printers configured" / "Connection lost - reconnecting") - it wrapped the response writer without forwarding SSE's flush, so the live event stream the dashboard depends on for its printer list could never connect. No data was ever affected; upgrade if you hit this on 2026-07-16.
 
