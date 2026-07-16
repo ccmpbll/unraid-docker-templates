@@ -30,6 +30,14 @@ Web interface: http://UNRAID_IP:8080</Overview>
   <DonateLink/>
   <Requires/>
   <Changes>
+###2026-07-16
+- Config export/import now covers printer maintenance mode and print-host ingest keys (both were silently missing from backup/restore)
+- Fix: an MQTT command with no timeout of its own could hang indefinitely during a broker blip - since auto-off runs inside the poll loop itself, this could permanently freeze an affected printer's entire polling, not just the one button click. Now fails fast and bounded to 5 seconds
+- Fix: an MQTT plug's cached state never cleared when the device dropped off the broker (LWT going Offline was previously ignored) - a dead plug no longer shows "On" forever
+- Power-toggle failures now show an error in the UI instead of failing silently
+- Mobile: webcam mode buttons no longer stick in a pressed state after a tap; File Manager rows no longer squeeze the filename unreadable on narrow screens
+- New debug logging toggle (Settings -> General) for verbose polling/MQTT/smart-plug/API tracing via `docker logs -f printspy`, no restart needed
+
 ###2026-07-15e
 - Fix: PrusaSlicer/OrcaSlicer "Upload and Print" didn't power on a printer whose assigned smart plug was in MQTT mode - dispatch was matching plugs using the old HTTP-only convention
 - Fix: an MQTT plug's cached state could go stale if the device itself disconnected and reconnected to the broker (reboot, power blip, wifi drop) - now re-checks current state as soon as the device comes back, instead of trusting what was last known
