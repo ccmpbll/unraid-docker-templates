@@ -30,6 +30,9 @@ Web interface: http://UNRAID_IP:8080</Overview>
   <DonateLink/>
   <Requires/>
   <Changes>
+###2026-07-16c
+- Fix: a short print completing between poll ticks could get recorded as "cancelled" in History and "Failed" in File Manager despite finishing successfully, and silently send no completion notification at all. PrusaLink actually tells us whether a job finished or was stopped - we just weren't using that field. Now we do.
+
 ###2026-07-16b
 - Print History is now fully self-contained, independent of the printer - a completed print's thumbnail is stored directly on its own History record instead of being borrowed from the live file cache, so deleting the source file from the printer (or the automatic cleanup that runs whenever File Manager refreshes) no longer breaks that entry's thumbnail. Existing History entries are automatically repaired on upgrade. Material, tool, layer height, filament stats, and everything else already worked this way - thumbnail was the one exception.
 
