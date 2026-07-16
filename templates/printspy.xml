@@ -30,6 +30,11 @@ Web interface: http://UNRAID_IP:8080</Overview>
   <DonateLink/>
   <Requires/>
   <Changes>
+###2026-07-16d
+- Fix: an idle printer's smart plug being off no longer stops its ICMP keepalive ping from running forever - now skipped whenever every plug assigned to that printer reads off, instead of pinging a powered-down printer's IP (and logging the failure) on every interval indefinitely
+- Fix: a second printspy instance pointed at the same MQTT broker (a leftover dev container, a second replica) could repeatedly evict the first instance's session, since the MQTT client ID wasn't unique per instance - now suffixed with hostname
+- Fix: File Manager could get stuck endlessly re-downloading a file's metadata after every print completion, because the completion-time cache write guessed a timestamp instead of using the printer's own real one - now uses PrusaLink's actual file timestamp, confirmed live to match
+
 ###2026-07-16c
 - Fix: a short print completing between poll ticks could get recorded as "cancelled" in History and "Failed" in File Manager despite finishing successfully, and silently send no completion notification at all. PrusaLink actually tells us whether a job finished or was stopped - we just weren't using that field. Now we do.
 
