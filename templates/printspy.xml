@@ -30,6 +30,9 @@ Web interface: http://UNRAID_IP:8080</Overview>
   <DonateLink/>
   <Requires/>
   <Changes>
+###2026-07-16a
+- Hotfix: the new debug-logging request middleware in 2026-07-16 broke the dashboard entirely (showed "No printers configured" / "Connection lost - reconnecting") - it wrapped the response writer without forwarding SSE's flush, so the live event stream the dashboard depends on for its printer list could never connect. No data was ever affected; upgrade if you hit this on 2026-07-16.
+
 ###2026-07-16
 - Config export/import now covers printer maintenance mode and print-host ingest keys (both were silently missing from backup/restore)
 - Fix: an MQTT command with no timeout of its own could hang indefinitely during a broker blip - since auto-off runs inside the poll loop itself, this could permanently freeze an affected printer's entire polling, not just the one button click. Now fails fast and bounded to 5 seconds
