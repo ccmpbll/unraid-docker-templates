@@ -22,6 +22,15 @@
   <DonateLink/>
   <Requires/>
   <Changes>
+###2026-09-20
+- Fixed radio airtime metrics reporting 10x low — now scaled by the controller's own rf-samples field instead of a hardcoded divisor, since that count varies by AP model/firmware
+- Fixed a disconnected AP's radios collapsing onto the same metric series and silently overwriting each other
+- Added ruckus_radio_airtime_total_percent metric
+- /debug now serves from its own loopback-only listener instead of sharing the public metrics port
+- Container now runs as an unprivileged user instead of root
+- AJAX requests to the controller are now bounded by a configurable timeout instead of being able to hang indefinitely
+- Secrets are now redacted at parse time rather than after the fact
+
 ###2026-05-23
 - Added 8 new per-client session traffic metrics: TX/RX bytes, TX/RX packets, TX retries, RX CRC errors, TX data drops, and session duration
 - Per-client byte/packet counters reset to zero on client reconnect (Gauge semantics — expected behaviour for infrequent reconnects)
@@ -50,4 +59,7 @@
   <Config Name="Ruckus Username" Target="RUCKUS_USER" Default="admin" Mode="" Description="Unleashed admin username" Type="Variable" Display="always" Required="true" Mask="false">admin</Config>
   <Config Name="Ruckus Password" Target="RUCKUS_PASS" Default="" Mode="" Description="Unleashed admin password" Type="Variable" Display="always" Required="true" Mask="true"/>
   <Config Name="Log Level" Target="LOG_LEVEL" Default="INFO" Mode="" Description="Log verbosity: DEBUG, INFO, WARNING, ERROR" Type="Variable" Display="advanced" Required="false" Mask="false">INFO</Config>
+  <Config Name="AJAX Timeout" Target="AJAX_TIMEOUT" Default="10" Mode="" Description="Timeout in seconds for each request to the Unleashed controller during a scrape" Type="Variable" Display="advanced" Required="false" Mask="false">10</Config>
+  <Config Name="Debug Bind" Target="DEBUG_BIND" Default="127.0.0.1" Mode="" Description="Address the /debug listener binds. Set to 0.0.0.0 to reach it from outside the container" Type="Variable" Display="advanced" Required="false" Mask="false">127.0.0.1</Config>
+  <Config Name="Debug Port" Target="DEBUG_PORT" Default="9786" Mode="" Description="Port the /debug listener binds" Type="Variable" Display="advanced" Required="false" Mask="false">9786</Config>
 </Container>
