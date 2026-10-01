@@ -30,6 +30,43 @@ Web interface: http://UNRAID_IP:8080</Overview>
   <DonateLink/>
   <Requires/>
   <Changes>
+###2026-10-01
+Security and reliability release - upgrade recommended.
+- Security: fixed stored XSS via printer-reported state text and smart-plug IDs; snapshot/thumbnail proxies now only serve image content types
+- Security: SSRF guard now also blocks 0.0.0.0/:: and covers notification images; MQTT broker URL restricted to tcp/ssl/ws schemes with credentials redacted from errors
+- Security: logout is POST-only; password change signs out other sessions; login throttling is per client and username (no remote lockout) with no username-timing leak; status API key compared in constant time, throttled, and new keys must be at least 16 characters (existing keys keep working)
+- Security: HTTP server header-read and idle timeouts; Docker image builds from the verified go.sum instead of running go mod tidy
+- Fix: a WiFi blip mid-print no longer records a false completed print or sends a false Print complete notification; polls are serialized per printer
+- Fix: Tasmota plugs now report an error when they did not actually switch; MQTT settings that fail to connect no longer drop the working connection
+- Fix: config import lists what it skipped and applies settings immediately; editing a printer with a partial request no longer silently stops its polling
+- Fix: slicer uploads interrupted by a restart now show as failed with Retry; deleting printers and slicer targets cleans up cached thumbnails and staged files
+- Dashboard: recovers when the live connection ends (an expired session goes to login); failed saves and deletes show an error; ingest banners no longer disappear on refresh; works with blocked browser storage
+- Note: the Log out button is now a form POST - custom links to /logout must use POST
+
+###2026-08-01b
+- Renamed the apple-touch-icon to bust iOS's system-level home-screen icon cache
+
+###2026-08-01a
+- PWA icons use a dark background instead of accent blue
+
+###2026-08-01
+- iOS/PWA home-screen install support (manifest, apple-touch-icon, standalone mode)
+
+###2026-07-31
+- Publish printer state to MQTT (retained, configurable topic, only on state changes and while printing)
+
+###2026-07-20a
+- Added status_line field to GET /api/status - one composed string per printer (for dashboard widgets that render one label per row, e.g. Homepage). Existing fields unchanged
+
+###2026-07-20
+- New public GET /api/status endpoint for external dashboards - API-key-gated (Settings &gt; Dashboard status API), separate from session auth, no URLs/IPs/credentials exposed. Disabled (404) until a key is set
+
+###2026-07-17a
+- PrusaLink BUSY state (filament load/unload, preheat, homing, self-test) is now distinct from Printing: no Pause/Cancel controls, no false print-started/checkpoint notifications
+
+###2026-07-17
+- PrusaLink raw API debug view - Raw API button in the Settings printer row dumps every fixed-path GET endpoint, pretty-printed and refreshed while open
+
 ###2026-07-16d
 - Fix: an idle printer's smart plug being off no longer stops its ICMP keepalive ping from running forever - now skipped whenever every plug assigned to that printer reads off, instead of pinging a powered-down printer's IP (and logging the failure) on every interval indefinitely
 - Fix: a second printspy instance pointed at the same MQTT broker (a leftover dev container, a second replica) could repeatedly evict the first instance's session, since the MQTT client ID wasn't unique per instance - now suffixed with hostname
