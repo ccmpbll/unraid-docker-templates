@@ -31,7 +31,7 @@ Web interface: http://UNRAID_IP:8080</Overview>
   <Requires/>
   <Changes>
 ###2026-10-01
-Security and reliability release - upgrade recommended.
+- Security and reliability release - upgrade recommended
 - Security: fixed stored XSS via printer-reported state text and smart-plug IDs; snapshot/thumbnail proxies now only serve image content types
 - Security: SSRF guard now also blocks 0.0.0.0/:: and covers notification images; MQTT broker URL restricted to tcp/ssl/ws schemes with credentials redacted from errors
 - Security: logout is POST-only; password change signs out other sessions; login throttling is per client and username (no remote lockout) with no username-timing leak; status API key compared in constant time, throttled, and new keys must be at least 16 characters (existing keys keep working)
