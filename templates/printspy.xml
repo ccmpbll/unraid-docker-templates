@@ -30,6 +30,16 @@ Web interface: http://UNRAID_IP:8080</Overview>
   <DonateLink/>
   <Requires/>
   <Changes>
+###2026-10-01a
+- Hardening and correctness release
+- Security: login throttling can no longer be wiped by flooding usernames; bgcode metadata inflation is capped; plugin API responses and history paging are size-capped; session cookie is marked Secure when served over HTTPS; deleting a user ends their sessions
+- Fix: database migration errors now stop startup instead of being ignored; saving settings is all-or-nothing; closing the browser mid print-control no longer flips every dashboard offline; poll interval changes apply without a restart; shutdown is clean
+- Fix: config import skips plugs, cameras and slicer targets whose printer was skipped and rejects unknown printer types
+- Fix: failed actions in the UI (print control, reprint, file delete, password and user changes, reorder, import) now show an error; editing a printer can no longer show another printer's API key; webcams no longer restart on unrelated refreshes
+- Memory: PrusaLink gcode metadata fetch streams instead of loading the whole file
+- Update: newer SQLite and Go crypto/network libraries; README documents the slicer target URL and key
+- Note: the PrintSpy data folder also holds staged slicer uploads (ingest/) until they are relayed - keep it on persistent storage with room for a few print files
+
 ###2026-10-01
 - Security and reliability release - upgrade recommended
 - Security: fixed stored XSS via printer-reported state text and smart-plug IDs; snapshot/thumbnail proxies now only serve image content types
