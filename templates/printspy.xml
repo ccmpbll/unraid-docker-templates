@@ -30,6 +30,10 @@ Web interface: http://UNRAID_IP:8080</Overview>
   <DonateLink/>
   <Requires/>
   <Changes>
+###2026-10-05
+- Fix: the camera Resolution dropdown (printspy-cam settings) now matches the camera's frame size values - it was sending values two steps low, so HD set SVGA and SXGA set XGA. Requires printspy-cam firmware 2026.07.13 or later
+- Docker image now includes a HEALTHCHECK against /login
+
 ###2026-10-01a
 - Hardening and correctness release
 - Security: login throttling can no longer be wiped by flooding usernames; bgcode metadata inflation is capped; plugin API responses and history paging are size-capped; session cookie is marked Secure when served over HTTPS; deleting a user ends their sessions
