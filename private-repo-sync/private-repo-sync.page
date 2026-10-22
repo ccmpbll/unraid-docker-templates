@@ -1,7 +1,7 @@
 Menu="Utilities"
 Type="xmenu"
 Title="Private Repo Sync"
-Icon="fa-refresh"
+Icon="private-repo-sync.png"
 ---
 <?php
 $name    = 'private-repo-sync';

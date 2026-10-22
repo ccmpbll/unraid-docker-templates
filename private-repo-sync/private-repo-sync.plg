@@ -2,16 +2,20 @@
 <!DOCTYPE PLUGIN [
   <!ENTITY name      "private-repo-sync">
   <!ENTITY author    "ccmpbll">
-  <!ENTITY version   "2026.10.22b">
+  <!ENTITY version   "2026.10.22c">
   <!ENTITY pluginURL "https://github.com/ccmpbll/unraid-docker-templates/raw/master/private-repo-sync/private-repo-sync.plg">
   <!ENTITY scriptURL "https://github.com/ccmpbll/unraid-docker-templates/raw/master/private-repo-sync/private-repo-sync.sh">
   <!ENTITY pageURL   "https://github.com/ccmpbll/unraid-docker-templates/raw/master/private-repo-sync/private-repo-sync.page">
+  <!ENTITY iconURL   "https://github.com/ccmpbll/unraid-docker-templates/raw/master/images/private-repo-sync.png">
   <!ENTITY cfgdir    "/boot/config/plugins/private-repo-sync">
 ]>
 
 <PLUGIN name="&name;" author="&author;" version="&version;" pluginURL="&pluginURL;" min="6.10.0">
 
 <CHANGES>
+###2026.10.22c###
+- Install the plugin icon so it shows on the Plugins tab and in the Tools menu
+
 ###2026.10.22b###
 - Fix updates not applying: the script and settings page are now re-downloaded on every install instead of being skipped when already present
 
@@ -31,6 +35,7 @@ mkdir -p "&cfgdir;"
 dl() { curl -fsSL --connect-timeout 10 --max-time 60 -o "$2.tmp" "$1" || return 1; mv "$2.tmp" "$2"; }
 dl "&scriptURL;" "&cfgdir;/&name;.sh"
 dl "&pageURL;" "&cfgdir;/&name;.page"
+dl "&iconURL;" "&cfgdir;/&name;.png"
 [ -f "&cfgdir;/&name;.sh" ] || { echo "ERROR: could not download &name;.sh"; exit 1; }
 if [ ! -f "&cfgdir;/&name;.cfg" ]; then
   cat > "&cfgdir;/&name;.cfg" &lt;&lt;'CFG'
@@ -44,6 +49,8 @@ CFG
 fi
 mkdir -p /usr/local/emhttp/plugins/&name;
 cp "&cfgdir;/&name;.page" /usr/local/emhttp/plugins/&name;/
+mkdir -p /usr/local/emhttp/plugins/&name;/images
+cp "&cfgdir;/&name;.png" /usr/local/emhttp/plugins/&name;/images/
 /bin/bash "&cfgdir;/&name;.sh" cron
 /bin/bash "&cfgdir;/&name;.sh"
   </INLINE>
