@@ -29,11 +29,14 @@ This template runs the container as root (Extra Parameters: --user 0:0) because 
   <DonateLink/>
   <Requires/>
   <Changes>
+###2026-10-22
+- Allowed Clients: description now says no spaces, exact container names, and what the log shows when an entry is wrong
+
 ###2026-10-20
 - Initial template for wollomatic/socket-proxy 1.x
   </Changes>
   <Config Name="Docker Socket" Target="/var/run/docker.sock" Default="/var/run/docker.sock" Mode="ro" Description="Host Docker socket the proxy filters. Mounted read-only; the API filtering is done by the allowlists below, not by this mount mode." Type="Path" Display="always" Required="true" Mask="false">/var/run/docker.sock</Config>
-  <Config Name="Allowed Clients" Target="SP_ALLOWFROM" Default="" Mode="" Description="Container names or CIDRs allowed to connect, comma-separated. Examples: traefik,dozzle or 172.18.0.0/16. Required: the default only allows localhost, so nothing else could connect." Type="Variable" Display="always" Required="true" Mask="false"/>
+  <Config Name="Allowed Clients" Target="SP_ALLOWFROM" Default="" Mode="" Description="Container names or IPs/CIDRs allowed to connect, comma-separated with NO spaces, and each name exactly as Docker shows it (docker ps). Examples: traefik,dozzle or 172.18.0.0/16. A space or a wrong name makes the proxy refuse that client (log: error looking up allowed client hostname). Required: the default only allows localhost, so nothing else could connect." Type="Variable" Display="always" Required="true" Mask="false"/>
   <Config Name="Allow GET" Target="SP_ALLOW_GET" Default="" Mode="" Description="Regex of allowed GET paths. Traefik example: /v1\..{1,2}/(version|containers/.*|events.*) . Log and container reading only: /(v1\..{1,2}/)?containers/(json|[^/]+/logs)" Type="Variable" Display="always" Required="true" Mask="false"/>
   <Config Name="Allow HEAD" Target="SP_ALLOW_HEAD" Default="" Mode="" Description="Regex of allowed HEAD paths. Traefik 2.11.31 / 3.6.1 and later need /_ping. Leave empty if the client does not use HEAD." Type="Variable" Display="always" Required="false" Mask="false"/>
   <Config Name="Allow POST" Target="SP_ALLOW_POST" Default="" Mode="" Description="Regex of allowed POST paths. Leave empty to keep the proxy read-only. POST can start, stop, create and exec containers, so only allow exactly what a trusted client needs (for example a restart-only proxy: /containers/[^/]+/restart)." Type="Variable" Display="advanced" Required="false" Mask="false"/>
