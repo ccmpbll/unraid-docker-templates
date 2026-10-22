@@ -64,6 +64,7 @@ for r in $REPOS; do s=${r%@*}; wanted+="${s//\//-} "; sync_repo "$r"; done
 # Drop mirrors of repos no longer listed. REPOS unset (cfg missing) means "unknown", not "none": prune nothing.
 if [ -n "${REPOS+x}" ]; then
   for d in "$DEST"/*/; do
-    [ -e "$d.managed" ] && [[ $wanted != *" $(basename "$d") "* ]] && { rm -rf "$d"; log "pruned ${d%/}"; }
+    if [ -e "$d.managed" ] && [[ $wanted != *" $(basename "$d") "* ]]; then rm -rf "$d"; log "pruned ${d%/}"; fi
   done
 fi
+exit 0   # failures are logged above; a flaky network must never fail the plugin install

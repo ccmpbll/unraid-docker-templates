@@ -6,6 +6,7 @@ export DEST=$(mktemp -d) STATE=$(mktemp -d) CFG=/nonexistent REPOS="ccmpbll/unra
 slug=ccmpbll-unraid-docker-templates
 ./private-repo-sync.sh | grep -q synced
 n=$(ls "$DEST/$slug"/*.xml | wc -l); [ "$n" -gt 0 ]
+./private-repo-sync.sh >/dev/null                    # must exit 0: the plg runs it at install and a non-zero aborts the install
 [ -z "$(./private-repo-sync.sh)" ]                      # unchanged HEAD -> silent no-op
 echo stale > "$DEST/$slug/stale.xml"; echo 0 > "$STATE/$slug"
 ./private-repo-sync.sh | grep -q synced
