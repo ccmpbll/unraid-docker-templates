@@ -1,0 +1,42 @@
+<?xml version="1.0"?>
+<Container version="2">
+  <Name>loglook</Name>
+  <ExtraSearchTerms>loglook syslog log viewer unraid syslog server read-only api tokens n8n</ExtraSearchTerms>
+  <Repository>ccmpbll/loglook:latest</Repository>
+  <Registry>https://hub.docker.com/r/ccmpbll/loglook</Registry>
+  <Network>bridge</Network>
+  <MyIP/>
+  <MyMAC/>
+  <Shell>sh</Shell>
+  <Privileged>false</Privileged>
+  <Support>https://github.com/ccmpbll/loglook/issues</Support>
+  <Project>https://github.com/ccmpbll/loglook</Project>
+  <ReadMe>https://github.com/ccmpbll/loglook/blob/main/README.md</ReadMe>
+  <Overview>Small read-only viewer and API for the syslog files Unraid's built-in syslog server collects (syslog-IP.log and its rotated copies). Pick a device and a time window and loglook finds the lines by their own timestamps across the live and rotated files, so you never open a multi-gigabyte file by hand.&#13;
+&#13;
+Three views of any window: the lines, top patterns (MACs, IPs and numbers collapsed so repeats become one row with a count) and counts per captured value. Filters take plain text or a regex, and a window can end earlier to compare today with previous days. A read-only JSON API behind bearer tokens serves the same queries to scripts and automations such as n8n. Tokens are created in the web UI, shown once, and stored hashed.&#13;
+&#13;
+Setup: set Syslog Folder to your Unraid syslog share (Settings, Syslog Server, Local syslog folder). Create sources.yml in the Config folder to name each device by IP (an example is in the project README, https://github.com/ccmpbll/loglook/blob/main/sources.example.yml); without it every device shows as unmapped. Open the web UI and create the admin user on first run. The log folder is mounted read-only and nothing in it is ever changed.&#13;
+&#13;
+Web interface: http://UNRAID_IP:8000</Overview>
+  <Category>Tools:Utilities Network:Management</Category>
+  <WebUI>http://[IP]:[PORT:8000]</WebUI>
+  <TemplateURL>https://raw.githubusercontent.com/ccmpbll/unraid-docker-templates/refs/heads/master/templates/loglook.xml</TemplateURL>
+  <Icon>https://raw.githubusercontent.com/ccmpbll/unraid-docker-templates/refs/heads/master/images/loglook.png</Icon>
+  <ExtraParams/>
+  <PostArgs/>
+  <CPUset/>
+  <DonateText/>
+  <DonateLink/>
+  <Requires/>
+  <Changes>
+###2026-10-22
+- Initial template for loglook 2026.10.22
+  </Changes>
+  <Config Name="WebUI Port" Target="8000" Default="8000" Mode="tcp" Description="Port for the web interface and the API." Type="Port" Display="always" Required="true" Mask="false">8000</Config>
+  <Config Name="Syslog Folder" Target="/logs" Default="/mnt/user/syslog" Mode="ro" Description="The folder your syslog server writes to (files named syslog-IP.log). Mounted read-only." Type="Path" Display="always" Required="true" Mask="false">/mnt/user/syslog</Config>
+  <Config Name="Config" Target="/config" Default="/mnt/user/appdata/loglook/config" Mode="rw" Description="Put sources.yml here: which IP is which device, and optionally how long silence is worth flagging. Without it every device shows as unmapped." Type="Path" Display="always" Required="true" Mask="false">/mnt/user/appdata/loglook/config</Config>
+  <Config Name="Data" Target="/data" Default="/mnt/user/appdata/loglook/data" Mode="rw" Description="The admin login, API tokens and the generated session key. Keep on persistent storage." Type="Path" Display="always" Required="true" Mask="false">/mnt/user/appdata/loglook/data</Config>
+  <Config Name="Secret Key" Target="LOGLOOK_SECRET_KEY" Default="" Mode="" Description="Optional. Signs the login cookie. Leave empty and a random key is generated on first start and kept in the Data folder." Type="Variable" Display="advanced" Required="false" Mask="true"/>
+  <Config Name="Secure Cookies" Target="LOGLOOK_SECURE_COOKIES" Default="" Mode="" Description="Set to true only when you reach loglook over HTTPS (a reverse proxy such as Traefik terminates TLS). The login does not work over plain HTTP while this is on." Type="Variable" Display="advanced" Required="false" Mask="false"/>
+</Container>
