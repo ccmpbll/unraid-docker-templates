@@ -2,7 +2,7 @@
 <!DOCTYPE PLUGIN [
   <!ENTITY name      "private-repo-sync">
   <!ENTITY author    "ccmpbll">
-  <!ENTITY version   "2026.10.22a">
+  <!ENTITY version   "2026.10.22b">
   <!ENTITY pluginURL "https://github.com/ccmpbll/unraid-docker-templates/raw/master/private-repo-sync/private-repo-sync.plg">
   <!ENTITY scriptURL "https://github.com/ccmpbll/unraid-docker-templates/raw/master/private-repo-sync/private-repo-sync.sh">
   <!ENTITY pageURL   "https://github.com/ccmpbll/unraid-docker-templates/raw/master/private-repo-sync/private-repo-sync.page">
@@ -12,6 +12,9 @@
 <PLUGIN name="&name;" author="&author;" version="&version;" pluginURL="&pluginURL;" min="6.10.0">
 
 <CHANGES>
+###2026.10.22b###
+- Fix updates not applying: the script and settings page are now re-downloaded on every install instead of being skipped when already present
+
 ###2026.10.22a###
 - Fix install aborting with "run failed" even though the sync succeeded (script exited non-zero after the prune step)
 
@@ -20,17 +23,15 @@
 - Settings page (Tools > User Utilities > Private Repo Sync): repos, schedule, token, Sync now
 </CHANGES>
 
-<FILE Name="&cfgdir;/&name;.sh">
-  <URL>&scriptURL;</URL>
-</FILE>
-
-<FILE Name="&cfgdir;/&name;.page">
-  <URL>&pageURL;</URL>
-</FILE>
-
 <FILE Run="/bin/bash">
   <INLINE>
 mkdir -p "&cfgdir;"
+# Always fetch fresh copies (the plugin manager skips a FILE download when the file already exists, so updates never landed).
+# Download to .tmp first so a failed download at boot keeps the working copy.
+dl() { curl -fsSL --connect-timeout 10 --max-time 60 -o "$2.tmp" "$1" || return 1; mv "$2.tmp" "$2"; }
+dl "&scriptURL;" "&cfgdir;/&name;.sh"
+dl "&pageURL;" "&cfgdir;/&name;.page"
+[ -f "&cfgdir;/&name;.sh" ] || { echo "ERROR: could not download &name;.sh"; exit 1; }
 if [ ! -f "&cfgdir;/&name;.cfg" ]; then
   cat > "&cfgdir;/&name;.cfg" &lt;&lt;'CFG'
 # Space-separated GitHub repos: user/repo or user/repo@branch
