@@ -1,0 +1,57 @@
+<?xml version='1.0' standalone='yes'?>
+<!DOCTYPE PLUGIN [
+  <!ENTITY name      "private-repo-sync">
+  <!ENTITY author    "ccmpbll">
+  <!ENTITY version   "2026.10.22">
+  <!ENTITY pluginURL "https://github.com/ccmpbll/unraid-docker-templates/raw/master/private-repo-sync/private-repo-sync.plg">
+  <!ENTITY scriptURL "https://github.com/ccmpbll/unraid-docker-templates/raw/master/private-repo-sync/private-repo-sync.sh">
+  <!ENTITY pageURL   "https://github.com/ccmpbll/unraid-docker-templates/raw/master/private-repo-sync/private-repo-sync.page">
+  <!ENTITY cfgdir    "/boot/config/plugins/private-repo-sync">
+]>
+
+<PLUGIN name="&name;" author="&author;" version="&version;" pluginURL="&pluginURL;" min="6.10.0">
+
+<CHANGES>
+###2026.10.22###
+- Initial release: mirrors Unraid XML templates from GitHub repos into Community Applications' Private Apps folder, at boot and on a schedule
+- Settings page (Tools > User Utilities > Private Repo Sync): repos, schedule, token, Sync now
+</CHANGES>
+
+<FILE Name="&cfgdir;/&name;.sh">
+  <URL>&scriptURL;</URL>
+</FILE>
+
+<FILE Name="&cfgdir;/&name;.page">
+  <URL>&pageURL;</URL>
+</FILE>
+
+<FILE Run="/bin/bash">
+  <INLINE>
+mkdir -p "&cfgdir;"
+if [ ! -f "&cfgdir;/&name;.cfg" ]; then
+  cat > "&cfgdir;/&name;.cfg" &lt;&lt;'CFG'
+# Space-separated GitHub repos: user/repo or user/repo@branch
+REPOS="ccmpbll/unraid-docker-templates"
+# Cron schedule for the sync (the settings page applies it on save)
+SCHEDULE="17 * * * *"
+# Optional: needed for private repos, or to lift the 60 req/hr unauthenticated API limit
+GITHUB_TOKEN=""
+CFG
+fi
+mkdir -p /usr/local/emhttp/plugins/&name;
+cp "&cfgdir;/&name;.page" /usr/local/emhttp/plugins/&name;/
+/bin/bash "&cfgdir;/&name;.sh" cron
+/bin/bash "&cfgdir;/&name;.sh"
+  </INLINE>
+</FILE>
+
+<FILE Run="/bin/bash" Method="remove">
+  <INLINE>
+rm -f /boot/config/plugins/dynamix/&name;.cron
+rm -rf /usr/local/emhttp/plugins/&name;
+update_cron
+# Config and synced templates are intentionally preserved
+  </INLINE>
+</FILE>
+
+</PLUGIN>

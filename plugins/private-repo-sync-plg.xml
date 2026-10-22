@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Plugin>
+  <PluginURL>https://github.com/ccmpbll/unraid-docker-templates/raw/master/private-repo-sync/private-repo-sync.plg</PluginURL>
+  <Name>Private Repo Sync</Name>
+  <Category>Tools:Utilities</Category>
+  <Icon>https://raw.githubusercontent.com/ccmpbll/unraid-docker-templates/master/images/private-repo-sync.png</Icon>
+  <Overview>Mirrors Docker and plugin XML templates from your own GitHub repos into Community Applications' Private Apps, so you can install your own curated apps without waiting on the CA feed.&#13;Syncs at boot and on a schedule, and only downloads a repo when its latest commit changed.&#13;Settings panel under Tools > User Utilities.</Overview>
+  <Project>https://github.com/ccmpbll/unraid-docker-templates/tree/master/private-repo-sync</Project>
+  <Support>https://github.com/ccmpbll/unraid-docker-templates/issues</Support>
+</Plugin>
