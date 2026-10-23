@@ -9,7 +9,7 @@ $cfgfile = getenv('CA_CFG') ?: "/boot/config/plugins/$name/$name.cfg";
 $script  = getenv('CA_SCRIPT') ?: "/boot/config/plugins/$name/$name.sh";
 $csrf    = $var['csrf_token'] ?? '';
 
-// Config is sourced by bash, so every value is validated down to a charset that cannot escape the quotes.
+// The script reads the config as plain data, but every value is still validated down to a charset that cannot escape the quotes.
 $cfg = ['REPOS' => '', 'SCHEDULE' => '17 * * * *', 'GITHUB_TOKEN' => ''];
 if (is_file($cfgfile)) {
   foreach (file($cfgfile) as $line) {
