@@ -19,7 +19,8 @@ fi
 log() { echo "$*"; logger -t "$NAME" "$*" 2>/dev/null; }
 
 if [ "$1" = cron ]; then
-  f=/boot/config/plugins/dynamix/$NAME.cron
+  f=/boot/config/plugins/$NAME/$NAME.cron
+  rm -f /boot/config/plugins/dynamix/$NAME.cron   # old location: would run the sync twice
   printf '# %s\n%s /bin/bash /boot/config/plugins/%s/%s.sh >/dev/null 2>&1\n\n' "$NAME" "${SCHEDULE:-17 * * * *}" "$NAME" "$NAME" > "$f"
   update_cron
   exit

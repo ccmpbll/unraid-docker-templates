@@ -1,0 +1,23 @@
+name: plugin digests
+# Keeps the .plg's SHA256 pins in step with the files they pin.
+on:
+  push:
+    branches: [master]
+    paths:
+      - private-repo-sync/private-repo-sync.sh
+      - private-repo-sync/private-repo-sync.page
+      - images/private-repo-sync.png
+permissions:
+  contents: write
+jobs:
+  digests:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: private-repo-sync/digests.sh update
+      - run: |
+          git diff --quiet && exit 0
+          git config user.name github-actions
+          git config user.email github-actions@users.noreply.github.com
+          git commit -am "chore: update private-repo-sync digests [skip ci]"
+          git push

@@ -2,7 +2,7 @@
 <!DOCTYPE PLUGIN [
   <!ENTITY name      "private-repo-sync">
   <!ENTITY author    "ccmpbll">
-  <!ENTITY version   "2026.10.22c">
+  <!ENTITY version   "2026.10.23">
   <!ENTITY pluginURL "https://github.com/ccmpbll/unraid-docker-templates/raw/master/private-repo-sync/private-repo-sync.plg">
   <!ENTITY scriptURL "https://github.com/ccmpbll/unraid-docker-templates/raw/master/private-repo-sync/private-repo-sync.sh">
   <!ENTITY pageURL   "https://github.com/ccmpbll/unraid-docker-templates/raw/master/private-repo-sync/private-repo-sync.page">
@@ -13,6 +13,10 @@
 <PLUGIN name="&name;" author="&author;" version="&version;" pluginURL="&pluginURL;" min="6.10.0">
 
 <CHANGES>
+###2026.10.23###
+- Security: the script, settings page and icon are now downloaded with pinned SHA256 hashes instead of unverified from the master branch
+- Move the cron file into the plugin's own folder (it was in the dynamix plugin's folder)
+
 ###2026.10.22c###
 - Install the plugin icon so it shows on the Plugins tab and in the Tools menu
 
@@ -31,7 +35,7 @@
      so update these three digests whenever the files change and updates will land. -->
 <FILE Name="&cfgdir;/&name;.sh">
 <URL>&scriptURL;</URL>
-<SHA256>de41f6e5b814772a3694d9000e3b6f94b70e0ae0274da0a49ea2dce050cb055b</SHA256>
+<SHA256>2f5b4d70635a827526e9c6a09eebb7282db003523f0acf76d163e5869d9c5a35</SHA256>
 </FILE>
 
 <FILE Name="&cfgdir;/&name;.page">
@@ -68,7 +72,7 @@ cp "&cfgdir;/&name;.png" /usr/local/emhttp/plugins/&name;/images/
 
 <FILE Run="/bin/bash" Method="remove">
   <INLINE>
-rm -f /boot/config/plugins/dynamix/&name;.cron
+rm -f "&cfgdir;/&name;.cron" /boot/config/plugins/dynamix/&name;.cron
 rm -rf /usr/local/emhttp/plugins/&name;
 update_cron
 # Config and synced templates are intentionally preserved

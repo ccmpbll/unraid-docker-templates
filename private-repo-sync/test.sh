@@ -2,6 +2,7 @@
 # Smoke test against a real public repo: sync, no-op resync, prune-on-change.
 set -e
 cd "$(dirname "$0")"
+./digests.sh                                       # plg SHA256 pins must match the files
 export DEST=$(mktemp -d) STATE=$(mktemp -d) CFG=/nonexistent REPOS="ccmpbll/unraid-docker-templates"
 slug=ccmpbll-unraid-docker-templates
 ./private-repo-sync.sh | grep -q synced
