@@ -31,7 +31,10 @@ Web interface: http://UNRAID_IP:8000</Overview>
   <Requires/>
   <Changes>
 ###2026-10-22
+- Update for loglook 2026.10.22d: the viewer's filter box is two even rows with Contains full width below, one column on phones
+- Update for loglook 2026.10.22c: every viewer filter is always visible, the window list goes down to 5 minutes, Sources rows are edited in place, and the loglook icon is the favicon
 - Update for loglook 2026.10.22b: devices and the timezone are set on the Sources page, so there is no sources.yml to write; the Config folder must be writable
+- Update for loglook 2026.10.22a: fixes from a code review (an empty just-rotated file, a device with a fast clock, files holding more than a year, the query time budget is checked on every line)
 - Initial template for loglook 2026.10.22
   </Changes>
   <Config Name="WebUI Port" Target="8000" Default="8000" Mode="tcp" Description="Port for the web interface and the API." Type="Port" Display="always" Required="true" Mask="false">8000</Config>
