@@ -27,16 +27,26 @@
 - Settings page (Tools > User Utilities > Private Repo Sync): repos, schedule, token, Sync now
 </CHANGES>
 
+<!-- The plugin manager re-downloads a FILE whenever the copy on the flash does not match its SHA256,
+     so update these three digests whenever the files change and updates will land. -->
+<FILE Name="&cfgdir;/&name;.sh">
+<URL>&scriptURL;</URL>
+<SHA256>de41f6e5b814772a3694d9000e3b6f94b70e0ae0274da0a49ea2dce050cb055b</SHA256>
+</FILE>
+
+<FILE Name="&cfgdir;/&name;.page">
+<URL>&pageURL;</URL>
+<SHA256>e73888a39f2082e865badb88bcb8af31012a8dd078ada51d0de3763befa4bb30</SHA256>
+</FILE>
+
+<FILE Name="&cfgdir;/&name;.png">
+<URL>&iconURL;</URL>
+<SHA256>cd34b82dd378f4b40c1885742972c65852b9307c74b22350eae67fad0bfa861b</SHA256>
+</FILE>
+
 <FILE Run="/bin/bash">
   <INLINE>
-mkdir -p "&cfgdir;"
-# Always fetch fresh copies (the plugin manager skips a FILE download when the file already exists, so updates never landed).
-# Download to .tmp first so a failed download at boot keeps the working copy.
-dl() { curl -fsSL --connect-timeout 10 --max-time 60 -o "$2.tmp" "$1" || return 1; mv "$2.tmp" "$2"; }
-dl "&scriptURL;" "&cfgdir;/&name;.sh"
-dl "&pageURL;" "&cfgdir;/&name;.page"
-dl "&iconURL;" "&cfgdir;/&name;.png"
-[ -f "&cfgdir;/&name;.sh" ] || { echo "ERROR: could not download &name;.sh"; exit 1; }
+[ -f "&cfgdir;/&name;.sh" ] || { echo "ERROR: &name;.sh is missing"; exit 1; }
 if [ ! -f "&cfgdir;/&name;.cfg" ]; then
   cat > "&cfgdir;/&name;.cfg" &lt;&lt;'CFG'
 # Space-separated GitHub repos: user/repo or user/repo@branch
