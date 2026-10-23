@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Plugin>
   <PluginURL>https://github.com/ccmpbll/unraid-docker-templates/raw/master/private-repo-sync/private-repo-sync.plg</PluginURL>
+  <PluginAuthor>ccmpbll</PluginAuthor>
   <Name>Private Repo Sync</Name>
   <Category>Tools:Utilities</Category>
   <Icon>https://raw.githubusercontent.com/ccmpbll/unraid-docker-templates/master/images/private-repo-sync.png</Icon>
