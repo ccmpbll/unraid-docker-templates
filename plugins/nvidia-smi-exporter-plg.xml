@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Plugin>
   <PluginURL>https://github.com/ccmpbll/nvidia-smi-exporter/raw/main/unraid/nvidia-smi-exporter.plg</PluginURL>
+  <PluginAuthor>ccmpbll</PluginAuthor>
   <Name>Nvidia-SMI Exporter</Name>
   <Category>Tools:Utilities</Category>
   <Icon>https://raw.githubusercontent.com/ccmpbll/unraid-docker-templates/main/images/prom-nvidia.png</Icon>
