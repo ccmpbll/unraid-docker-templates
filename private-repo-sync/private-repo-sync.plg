@@ -40,7 +40,7 @@
 
 <FILE Name="&cfgdir;/&name;.page">
 <URL>&pageURL;</URL>
-<SHA256>e73888a39f2082e865badb88bcb8af31012a8dd078ada51d0de3763befa4bb30</SHA256>
+<SHA256>dd4926e5d09022aec171c4bf844096e48fa850efb20449943fccaf85d8be9212</SHA256>
 </FILE>
 
 <FILE Name="&cfgdir;/&name;.png">
