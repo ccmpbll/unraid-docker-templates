@@ -30,6 +30,18 @@ Web interface: http://UNRAID_IP:8080</Overview>
   <DonateLink/>
   <Requires/>
   <Changes>
+###2026-10-24
+- Quieter keepalive: a failing ping is logged once and again when it answers instead of on every tick, and an offline printer is pinged once a minute instead of every tick
+- PrusaLink printers that are offline with every assigned smart plug off are no longer asked for status each poll (asked once a minute, in case a plug is not the printer's own power); polling resumes as soon as a plug comes on, and the offline reason stays visible
+- A printer that was printing, paused or idle when its plug went off is polled normally until it is recorded offline, so print history and notifications are unchanged; OctoPrint printers and printers with no assigned plug are unaffected
+
+###2026-10-20
+- Quieter logs: an unreachable printer is logged once when it goes offline (with the reason) and once when it recovers, instead of an error on every poll
+- Update: newer golang.org/x/net
+
+###2026-10-14
+- Maintenance release: Docker build moves to Go 1.27 and alpine 3.24, dependency updates. No functional changes
+
 ###2026-10-05
 - Fix: the camera Resolution dropdown (printspy-cam settings) now matches the camera's frame size values - it was sending values two steps low, so HD set SVGA and SXGA set XGA. Requires printspy-cam firmware 2026.07.13 or later
 - Docker image now includes a HEALTHCHECK against /login
