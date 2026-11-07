@@ -32,6 +32,8 @@ Web interface: http://UNRAID_IP:8000</Overview>
   <DonateLink/>
   <Requires/>
   <Changes>
+###2026-11-06
+- Update for loglook 2026.11.06: fixes a 503 "sources.yml is not usable" on the first requests after a restart, when several arrived together while the file was still being read. Nothing to set up
 ###2026-11-05
 - Update for loglook 2026.11.05: reads Docker container logs as well as syslog. Containers appear as docker:NAME in the viewer, on Sources and in the API. Map the Docker Socket path (added) or set Docker URL to a read-only socket proxy; remove the path and set Docker URL to off for syslog only. Devices nobody has named yet are readable by their IP
 ###2026-10-22
